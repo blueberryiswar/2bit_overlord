@@ -54,10 +54,9 @@ custom_data_layer_0/name = "wall"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b3oru")
 
-[node name="Level" type="Node2D" unique_id=592820759 node_paths=PackedStringArray("tile_map")]
+[node name="Level" type="Node2D" unique_id=592820759 node_paths=PackedStringArray("tile_map") groups=["level"]]
 script = ExtResource("1_sjb42")
 treasure_scene = ExtResource("2_8hd6v")
-coins = 10
 tile_map = NodePath("Map")
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=1686445765]
@@ -82,8 +81,10 @@ pathfinder = NodePath("../Pathfinder")
 [node name="Exit" parent="." unique_id=336072585 instance=ExtResource("8_045es")]
 position = Vector2(144, 224)
 
-[node name="SpikeTrap" parent="." unique_id=1952756675 instance=ExtResource("9_omn1t")]
+[node name="SpikeTrap" parent="." unique_id=1952756675 node_paths=PackedStringArray("tile_map") instance=ExtResource("9_omn1t")]
 position = Vector2(144, 112)
+tile_map = NodePath("../Map")
 
-[node name="SpikeTrap2" parent="." unique_id=467949811 instance=ExtResource("9_omn1t")]
+[node name="SpikeTrap2" parent="." unique_id=467949811 node_paths=PackedStringArray("tile_map") instance=ExtResource("9_omn1t")]
 position = Vector2(128, 176)
+tile_map = NodePath("../Map")

@@ -5,11 +5,7 @@ extends Node2D
 @export var pathfinder : Pathfinder
 var target = Vector2i(8,8)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	spawnHero()
-
-func spawnHero() -> void:
+func spawn_hero() -> void:
 	if(heroes.is_empty()):
 		return
 		
@@ -21,4 +17,7 @@ func spawnHero() -> void:
 	hero.start_path_to(target)
 	heroes.remove_at(0)
 	await get_tree().create_timer(spawnDelay).timeout
-	spawnHero()
+	spawn_hero()
+
+func set_target(new_target : Vector2i):
+	target = new_target

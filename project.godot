@@ -28,6 +28,7 @@ entrance=""
 treasure=""
 exit=""
 trap=""
+level=""
 
 [physics]
 

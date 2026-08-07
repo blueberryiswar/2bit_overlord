@@ -7,8 +7,10 @@ extends CharacterBody2D
 var wait = false
 var goal = Vector2i(8,8)
 var lastPosition : Vector2i
+var remains_scene = preload("res://objects/remains.tscn")
+var thief = false
 
-const SPEED : float = 10.0
+const SPEED : float = 15.0
 var path_queue = []
 
 func start_path_to(goal_map_pos: Vector2i):
@@ -40,6 +42,8 @@ func set_pathfinder(new_pathfinder : Pathfinder) -> void:
 	tile_map = new_pathfinder.tile_map
 	
 func go_to_exit():
+	thief = true
+	coins += 1
 	var exits = get_tree().get_nodes_in_group("exit")
 
 	var nearest_exit = exits[0]
@@ -60,4 +64,8 @@ func escaped():
 	queue_free()
 	
 func die():
+	var remains = remains_scene.instantiate()
+	remains.set_coin_value(coins)
+	get_tree().current_scene.add_child(remains)
+	remains.global_position = global_position
 	queue_free()

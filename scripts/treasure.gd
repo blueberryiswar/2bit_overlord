@@ -42,5 +42,6 @@ func steal_coin():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hero"):
-		steal_coin()
-		body.go_to_exit()
+		if !body.thief:
+			steal_coin()
+			body.go_to_exit()
