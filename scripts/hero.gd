@@ -47,6 +47,7 @@ func loot(new_coins: int):
 func go_to_exit():
 	thief = true
 	loot(1)
+	GameManager.remove_gold(10)
 	var exits = get_tree().get_nodes_in_group("exit")
 
 	var nearest_exit = exits[0]

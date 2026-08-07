@@ -113,16 +113,13 @@ offset_right = 256.0
 offset_bottom = 256.0
 texture = SubResource("GradientTexture1D_a6hcy")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=642812127]
+[node name="gui" type="CanvasLayer" parent="." unique_id=642812127]
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=652681187]
-anchors_preset = -1
-anchor_left = -0.18
-anchor_bottom = 0.4
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -48.0
-offset_bottom = -204.0
+[node name="Label" type="Label" parent="gui" unique_id=652681187]
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 68.0
+offset_bottom = 100.0
 tooltip_text = "Gold you currently own."
 mouse_filter = 1
 text = "100"
