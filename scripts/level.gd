@@ -2,6 +2,7 @@ extends Node2D
 
 @export var treasure_scene : PackedScene
 @export var gold : int = 100
+@export var pathfinder : Pathfinder
 var coins : int = 10
 @export var tile_map : TileMapLayer
 const treasure_position : Vector2i = Vector2i(8,8)
@@ -10,14 +11,24 @@ var changeX : bool = true
 var treasures : Array = []
 var undistributed_coins : int
 var wave : int = 1
+var build_phase : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coins = floori(gold/10)
 	undistributed_coins = coins
 	distribute_coins()
-	wave_start()
 	
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("ui_select") and build_phase:
+		try_to_start_wave()
+
+func try_to_start_wave() -> void:
+	pathfinder.update()
+	build_phase = false
+	tile_map.set_build_mode(false)
+	wave_start()
+
 func wave_start():
 	var entrances = get_tree().get_nodes_in_group("entrance")
 	

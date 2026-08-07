@@ -47,8 +47,6 @@ func move_solid(old_position, new_position):
 	astar_grid.set_point_solid(tile_map.local_to_map(new_position))
 
 func update():
-	astar_grid.update()
-	
 	for x in tile_map.get_used_rect().size.x:
 		for y in tile_map.get_used_rect().size.y:
 			var tile_position = Vector2i(
@@ -58,6 +56,8 @@ func update():
 			
 			if ground_data != null and ground_data.get_custom_data("wall"):
 				astar_grid.set_point_solid(tile_position)
+			else:
+				astar_grid.set_point_solid(tile_position, false)
 
 func find_nearest_storage(my_position: Vector2):
 	var closestStorage : Vector2

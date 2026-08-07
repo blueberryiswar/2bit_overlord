@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://devyreeqmqp43" path="res://scripts/treasure.gd" id="1_gfld4"]
 [ext_resource type="Texture2D" uid="uid://b87ykqwmhw61x" path="res://assets/tilemap.png" id="2_slrdt"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_omn1t"]
 
 [node name="Treasure" type="Node2D" unique_id=1923142583 groups=["treasure"]]
 script = ExtResource("1_gfld4")
@@ -21,6 +20,6 @@ frame = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1426393488]
 position = Vector2(8, 8)
 scale = Vector2(0.6, 0.6)
-shape = SubResource("RectangleShape2D_iqjy0")
+shape = SubResource("CircleShape2D_omn1t")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -4,10 +4,11 @@ const TILE_FLOOR : Vector2i = Vector2i(7,0)
 const TILE_CHEST : Vector2i = Vector2i(9,0)
 const POS_CHEST : Vector2i = Vector2i(8,8)
 
+var build_mode = true
 
 func _input(event):
 	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and build_mode:
 		digIntoWall(globalToGridPos(get_local_mouse_position()))
 
 func globalToGridPos(globalPos : Vector2) -> Vector2i:
@@ -27,3 +28,5 @@ func digIntoWall(gridPos:Vector2i) -> void:
 	if isWall(gridPos):
 		set_cell(gridPos, 0, TILE_FLOOR)
 		
+func set_build_mode(enabled : bool):
+	build_mode = enabled

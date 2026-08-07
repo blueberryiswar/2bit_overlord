@@ -59,12 +59,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqjy0"]
+radius = 7.0
 
 [node name="Remains" type="Area2D" unique_id=1971046441]
 collision_layer = 128
 collision_mask = 128
-monitoring = false
-monitorable = false
 script = ExtResource("1_3udy6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=792476107]
@@ -76,3 +75,5 @@ autoplay = "knight"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835157733]
 position = Vector2(8, 8)
 shape = SubResource("CircleShape2D_iqjy0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

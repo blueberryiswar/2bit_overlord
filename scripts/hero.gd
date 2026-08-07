@@ -41,9 +41,12 @@ func set_pathfinder(new_pathfinder : Pathfinder) -> void:
 	pathfinder = new_pathfinder
 	tile_map = new_pathfinder.tile_map
 	
+func loot(new_coins: int):
+	coins += 1
+	
 func go_to_exit():
 	thief = true
-	coins += 1
+	loot(1)
 	var exits = get_tree().get_nodes_in_group("exit")
 
 	var nearest_exit = exits[0]
