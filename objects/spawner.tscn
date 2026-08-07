@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dqdt5apq6pamf"]
+
+[ext_resource type="Script" uid="uid://cvgxof68e6xq4" path="res://scripts/spawner.gd" id="1_unxpu"]
+[ext_resource type="Texture2D" uid="uid://b87ykqwmhw61x" path="res://assets/tilemap.png" id="2_pt1fj"]
+
+[node name="Spawner" type="Node2D" unique_id=567677002]
+script = ExtResource("1_unxpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=264340992]
+position = Vector2(8, 8)
+texture = ExtResource("2_pt1fj")
+hframes = 10
+vframes = 3
+frame = 21

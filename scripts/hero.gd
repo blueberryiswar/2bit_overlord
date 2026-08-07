@@ -1,0 +1,63 @@
+extends CharacterBody2D
+
+@export var pathfinder : Pathfinder
+@export var tile_map : TileMapLayer
+@export var health : int = 1
+@export var coins : int = 1
+var wait = false
+var goal = Vector2i(8,8)
+var lastPosition : Vector2i
+
+const SPEED : float = 10.0
+var path_queue = []
+
+func start_path_to(goal_map_pos: Vector2i):
+	var local_start = tile_map.to_local(global_position)
+	var local_goal = tile_map.map_to_local(goal_map_pos)
+	if(lastPosition):
+		local_start = tile_map.to_local(lastPosition)
+	print(local_goal)
+	print(global_position)
+	print(tile_map.local_to_map(global_position))
+	var points = pathfinder.get_my_points(local_start, local_goal)
+	path_queue.clear()
+	for p in points:
+		path_queue.append(tile_map.to_global(p))
+	print(path_queue)
+
+func _physics_process(delta):
+	if path_queue.is_empty():
+		return
+		
+	var target = path_queue[0]
+	global_position = global_position.move_toward(target, SPEED * delta)
+	if global_position.distance_to(target) < 1.0:
+		lastPosition = target
+		path_queue.remove_at(0)
+
+func set_pathfinder(new_pathfinder : Pathfinder) -> void:
+	pathfinder = new_pathfinder
+	tile_map = new_pathfinder.tile_map
+	
+func go_to_exit():
+	var exits = get_tree().get_nodes_in_group("exit")
+
+	var nearest_exit = exits[0]
+
+	# look through exits to see if any are closer
+	for exit in exits:
+		if exit.global_position.distance_to(global_position) < nearest_exit.global_position.distance_to(global_position):
+			nearest_exit = exit
+
+	start_path_to(Vector2i(floor(nearest_exit.global_position.x / 16), floor(nearest_exit.global_position.y / 16)))
+
+func take_damage(damage : int):
+	health -= damage
+	if health <= 0:
+		die()
+
+func escaped():
+	queue_free()
+	
+func die():
+	queue_free()

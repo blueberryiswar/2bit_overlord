@@ -21,6 +21,14 @@ window/size/viewport_width=800
 window/size/viewport_height=800
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+hero=""
+entrance=""
+treasure=""
+exit=""
+trap=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

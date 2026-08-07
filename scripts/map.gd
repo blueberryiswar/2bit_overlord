@@ -1,12 +1,9 @@
 extends TileMapLayer
 
-const TILE_FLOOR : Vector2i = Vector2i(1,0)
-const TILE_CHEST : Vector2i = Vector2i(3,0)
+const TILE_FLOOR : Vector2i = Vector2i(7,0)
+const TILE_CHEST : Vector2i = Vector2i(9,0)
 const POS_CHEST : Vector2i = Vector2i(8,8)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	placeTreasure(POS_CHEST)
 
 func _input(event):
 	# Mouse in viewport coordinates.
@@ -30,5 +27,3 @@ func digIntoWall(gridPos:Vector2i) -> void:
 	if isWall(gridPos):
 		set_cell(gridPos, 0, TILE_FLOOR)
 		
-func placeTreasure(gridPos : Vector2i) -> void:
-	set_cell(gridPos,0,TILE_CHEST)
