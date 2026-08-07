@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="9_omn1t"]
 [ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="10_yydhl"]
 [ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="11_bekh1"]
+[ext_resource type="Texture2D" uid="uid://bq8l6tq7roeav" path="res://assets/boneborder.png" id="12_bekh1"]
+[ext_resource type="Texture2D" uid="uid://bt4lyydfqbavy" path="res://assets/coin_label.png" id="13_8bcou"]
+[ext_resource type="Script" uid="uid://bx0iops8mjhug" path="res://scripts/coin_symbol.gd" id="14_f7u7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
 texture = ExtResource("2_pdtm5")
@@ -66,6 +69,54 @@ gradient = SubResource("Gradient_omn1t")
 font = ExtResource("10_yydhl")
 font_color = Color(1, 0.6666667, 0, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7u7y"]
+atlas = ExtResource("13_8bcou")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq2cn"]
+atlas = ExtResource("13_8bcou")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5s8o"]
+atlas = ExtResource("13_8bcou")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls4ot"]
+atlas = ExtResource("13_8bcou")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx362"]
+atlas = ExtResource("13_8bcou")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqjy0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7u7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq2cn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5s8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls4ot")
+}],
+"loop": 0,
+"name": &"coin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx362")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level" type="Node2D" unique_id=592820759 node_paths=PackedStringArray("pathfinder", "tile_map") groups=["level"]]
 script = ExtResource("1_sjb42")
 wave1 = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
@@ -81,7 +132,7 @@ tile_set = SubResource("TileSet_pdtm5")
 script = ExtResource("3_b3oru")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1662639796]
-position = Vector2(57, 107)
+position = Vector2(67, 118)
 zoom = Vector2(2, 2)
 
 [node name="Pathfinder" type="Node" parent="." unique_id=2022046508 node_paths=PackedStringArray("tile_map")]
@@ -109,20 +160,50 @@ tile_map = NodePath("../Map")
 z_index = -5
 offset_left = -144.0
 offset_top = -48.0
-offset_right = 256.0
-offset_bottom = 256.0
+offset_right = 288.0
+offset_bottom = 272.0
 texture = SubResource("GradientTexture1D_a6hcy")
 
 [node name="gui" type="CanvasLayer" parent="." unique_id=642812127]
+follow_viewport_enabled = true
 
 [node name="Label" type="Label" parent="gui" unique_id=652681187]
-offset_left = 20.0
-offset_top = 80.0
-offset_right = 68.0
-offset_bottom = 100.0
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 20.0
 tooltip_text = "Gold you currently own."
 mouse_filter = 1
 text = "100"
 label_settings = SubResource("LabelSettings_iqjy0")
 horizontal_alignment = 2
 script = ExtResource("11_bekh1")
+
+[node name="border" type="Node2D" parent="." unique_id=294423306]
+
+[node name="Sprite2D" type="Sprite2D" parent="border" unique_id=244371455]
+position = Vector2(128, -4)
+texture = ExtResource("12_bekh1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="border" unique_id=1854442801]
+position = Vector2(128, 260)
+rotation = 3.1415927
+texture = ExtResource("12_bekh1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="border" unique_id=1547185164]
+position = Vector2(-4, 128)
+rotation = 1.5707964
+texture = ExtResource("12_bekh1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="border" unique_id=1137747787]
+position = Vector2(260, 128)
+rotation = 1.5707964
+texture = ExtResource("12_bekh1")
+
+[node name="Coin" type="AnimatedSprite2D" parent="." unique_id=484771526]
+position = Vector2(-112, 10)
+sprite_frames = SubResource("SpriteFrames_iqjy0")
+animation = &"coin"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+script = ExtResource("14_f7u7y")

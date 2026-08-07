@@ -30,8 +30,12 @@ func start_path_to(goal_map_pos: Vector2i):
 func _physics_process(delta):
 	if path_queue.is_empty():
 		return
-		
+
 	var target = path_queue[0]
+	if target.x > global_position.x:
+		$Sprite2D.flip_h = true
+	elif target.x < global_position.x:
+		$Sprite2D.flip_h = false
 	global_position = global_position.move_toward(target, SPEED * delta)
 	if global_position.distance_to(target) < 1.0:
 		lastPosition = target
@@ -49,7 +53,6 @@ func go_to_exit():
 	loot(1)
 	GameManager.remove_gold(10)
 	var exits = get_tree().get_nodes_in_group("exit")
-
 	var nearest_exit = exits[0]
 
 	# look through exits to see if any are closer
@@ -66,7 +69,7 @@ func take_damage(damage : int):
 
 func escaped():
 	queue_free()
-	
+
 func die():
 	var remains = remains_scene.instantiate()
 	remains.set_coin_value(coins)
