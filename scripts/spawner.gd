@@ -21,3 +21,9 @@ func spawn_hero() -> void:
 
 func set_target(new_target : Vector2i):
 	target = new_target
+
+func set_heroes(new_heroes : Array[PackedScene]):
+	heroes = new_heroes
+	
+func add_hero(hero : PackedScene):
+	heroes.append(hero)

@@ -9,6 +9,7 @@ var build_mode = true
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton and event.pressed and build_mode:
+		GameManager.remove_gold(1)
 		digIntoWall(globalToGridPos(get_local_mouse_position()))
 
 func globalToGridPos(globalPos : Vector2) -> Vector2i:

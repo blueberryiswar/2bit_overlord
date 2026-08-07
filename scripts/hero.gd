@@ -43,7 +43,7 @@ func set_pathfinder(new_pathfinder : Pathfinder) -> void:
 	
 func loot(new_coins: int):
 	coins += 1
-	
+
 func go_to_exit():
 	thief = true
 	loot(1)

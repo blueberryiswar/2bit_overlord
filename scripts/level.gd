@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var wave1 : Array[PackedScene]
+@export var wave2 : Array[PackedScene]
+@export var wave3 : Array[PackedScene]
 @export var treasure_scene : PackedScene
 @export var gold : int = 100
 @export var pathfinder : Pathfinder
@@ -30,9 +33,11 @@ func try_to_start_wave() -> void:
 	wave_start()
 
 func wave_start():
+	var currentWave = wave1
 	var entrances = get_tree().get_nodes_in_group("entrance")
 	
 	for entrance in entrances:
+		entrance.set_heroes(currentWave)
 		var target = Vector2i(floori(treasures[0].global_position.x/16), floori(treasures[0].global_position.y/16))
 		entrance.set_target(target)
 		entrance.spawn_hero()

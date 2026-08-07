@@ -27,6 +27,7 @@ func collect_coin():
 	looted = true
 	$AnimatedSprite2D.play("looted")
 	collected_coin.emit(coin_value)
+	GameManager.add_gold(coin_value * 10)
 
 
 func _on_body_entered(body: Node2D) -> void:

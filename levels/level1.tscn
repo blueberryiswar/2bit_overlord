@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/knight.tscn" id="6_pdpul"]
 [ext_resource type="PackedScene" uid="uid://c4honmkmmfvs8" path="res://objects/exit.tscn" id="8_045es"]
 [ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="9_omn1t"]
+[ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="10_yydhl"]
+[ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="11_bekh1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
 texture = ExtResource("2_pdtm5")
@@ -54,8 +56,21 @@ custom_data_layer_0/name = "wall"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b3oru")
 
+[sub_resource type="Gradient" id="Gradient_omn1t"]
+offsets = PackedFloat32Array(0.996, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a6hcy"]
+gradient = SubResource("Gradient_omn1t")
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
+font = ExtResource("10_yydhl")
+font_color = Color(1, 0.6666667, 0, 1)
+
 [node name="Level" type="Node2D" unique_id=592820759 node_paths=PackedStringArray("pathfinder", "tile_map") groups=["level"]]
 script = ExtResource("1_sjb42")
+wave1 = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+wave2 = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+wave3 = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul")])
 treasure_scene = ExtResource("2_8hd6v")
 pathfinder = NodePath("Pathfinder")
 tile_map = NodePath("Map")
@@ -89,3 +104,28 @@ tile_map = NodePath("../Map")
 [node name="SpikeTrap2" parent="." unique_id=467949811 node_paths=PackedStringArray("tile_map") instance=ExtResource("9_omn1t")]
 position = Vector2(128, 176)
 tile_map = NodePath("../Map")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1563789743]
+z_index = -5
+offset_left = -144.0
+offset_top = -48.0
+offset_right = 256.0
+offset_bottom = 256.0
+texture = SubResource("GradientTexture1D_a6hcy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=642812127]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=652681187]
+anchors_preset = -1
+anchor_left = -0.18
+anchor_bottom = 0.4
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -48.0
+offset_bottom = -204.0
+tooltip_text = "Gold you currently own."
+mouse_filter = 1
+text = "100"
+label_settings = SubResource("LabelSettings_iqjy0")
+horizontal_alignment = 2
+script = ExtResource("11_bekh1")
