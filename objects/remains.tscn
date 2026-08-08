@@ -21,11 +21,7 @@ region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jm2bs"]
 atlas = ExtResource("1_vxs1g")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_anly7"]
-atlas = ExtResource("1_vxs1g")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iqjy0"]
 animations = [{
@@ -41,9 +37,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o1mra")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jm2bs")
 }],
 "loop": 0,
 "name": &"knight",
@@ -51,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_anly7")
+"texture": SubResource("AtlasTexture_jm2bs")
 }],
 "loop": 0,
 "name": &"looted",
@@ -69,7 +62,7 @@ script = ExtResource("1_3udy6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=792476107]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_iqjy0")
-animation = &"looted"
+animation = &"knight"
 autoplay = "knight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835157733]

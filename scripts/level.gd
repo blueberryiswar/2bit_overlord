@@ -23,13 +23,12 @@ func _ready() -> void:
 	distribute_coins()
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_pressed("ui_select") and build_phase:
+	if Input.is_action_pressed("ui_select") and GameManager.build_phase:
 		try_to_start_wave()
 
 func try_to_start_wave() -> void:
 	pathfinder.update()
-	build_phase = false
-	tile_map.set_build_mode(false)
+	GameManager.build_phase = false
 	wave_start()
 
 func wave_start():

@@ -18,9 +18,6 @@ func start_path_to(goal_map_pos: Vector2i):
 	var local_goal = tile_map.map_to_local(goal_map_pos)
 	if(lastPosition):
 		local_start = tile_map.to_local(lastPosition)
-	print(local_goal)
-	print(global_position)
-	print(tile_map.local_to_map(global_position))
 	var points = pathfinder.get_my_points(local_start, local_goal)
 	path_queue.clear()
 	for p in points:

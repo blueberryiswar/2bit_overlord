@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="9_omn1t"]
 [ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="10_yydhl"]
 [ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="11_bekh1"]
+[ext_resource type="Texture2D" uid="uid://bpd17lxp4qcn4" path="res://assets/Buttones.png" id="12_a5s8o"]
 [ext_resource type="Texture2D" uid="uid://bq8l6tq7roeav" path="res://assets/boneborder.png" id="12_bekh1"]
 [ext_resource type="Texture2D" uid="uid://bt4lyydfqbavy" path="res://assets/coin_label.png" id="13_8bcou"]
+[ext_resource type="Script" uid="uid://b5kcdlo1jlaft" path="res://scripts/texture_button.gd" id="13_ls4ot"]
 [ext_resource type="Script" uid="uid://bx0iops8mjhug" path="res://scripts/coin_symbol.gd" id="14_f7u7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
@@ -68,6 +70,48 @@ gradient = SubResource("Gradient_omn1t")
 [sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
 font = ExtResource("10_yydhl")
 font_color = Color(1, 0.6666667, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7nqg"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(64, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ck5"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(80, 0, 16, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6hcy"]
+font = ExtResource("10_yydhl")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_70t85"]
+font = ExtResource("10_yydhl")
+font_size = 8
+font_color = Color(1, 0.6862745, 0.05882353, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqjy0"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(0, 0, 16, 16)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6hcy"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(16, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nn5w"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(32, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou4v7"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(48, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53hnx"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(96, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxqdg"]
+atlas = ExtResource("12_a5s8o")
+region = Rect2(112, 0, 16, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7u7y"]
 atlas = ExtResource("13_8bcou")
@@ -129,7 +173,9 @@ tile_map = NodePath("Map")
 [node name="Map" type="TileMapLayer" parent="." unique_id=1686445765]
 tile_map_data = PackedByteArray("AAABAAQAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAEAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAIAAAAAAACAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAABAAAAAAALAAAAAAADAAAAAAAMAAAAAAAAAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAACAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAACAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAABAAAAAAAPAAcAAAABAAAAAAAPAAgAAAACAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAADAAAAAAAPAAwAAAACAAAAAAAPAA0AAAAEAAAAAAAPAA4AAAACAAAAAAAPAA8AAAABAAAAAAAOAA8AAAACAAAAAAANAA8AAAACAAAAAAAMAA8AAAABAAAAAAALAA8AAAACAAAAAAAKAA8AAAAEAAAAAAAJAA8AAAAAAAAAAAAIAA8AAAABAAAAAAAHAA8AAAACAAAAAAAGAA8AAAAAAAAAAAAFAA8AAAABAAAAAAAEAA8AAAADAAAAAAADAA8AAAADAAAAAAACAA8AAAACAAAAAAABAA8AAAAEAAAAAAAAAA8AAAADAAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAAUAAAAEAAAAAAAAAAYAAAACAAAAAAAAAAcAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAABAAAAAAAAAAoAAAACAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAABAAAAAAAHAAwAAAACAAAAAAAHAAsAAAAAAAAAAAAHAAoAAAAAAAAAAAAHAAkAAAADAAAAAAAHAAgAAAAEAAAAAAAHAAcAAAAEAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAACAAAAAAAHAAMAAAAHAAAAAAAHAAIAAAADAAAAAAAHAAEAAAACAAAAAAAGAAEAAAABAAAAAAAFAAEAAAAHAAAAAAAEAAEAAAACAAAAAAADAAEAAAADAAAAAAACAAEAAAACAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAIAAAABAAAAAAADAAIAAAAEAAAAAAADAAMAAAAEAAAAAAADAAQAAAABAAAAAAACAAQAAAACAAAAAAACAAUAAAAEAAAAAAABAAUAAAACAAAAAAABAAYAAAADAAAAAAABAAcAAAAEAAAAAAABAAgAAAACAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAABAAsAAAACAAAAAAABAAwAAAAEAAAAAAABAA0AAAADAAAAAAABAA4AAAAAAAAAAAACAA4AAAADAAAAAAACAA0AAAACAAAAAAACAAwAAAAEAAAAAAACAAsAAAABAAAAAAACAAoAAAACAAAAAAACAAkAAAABAAAAAAACAAgAAAAEAAAAAAACAAcAAAACAAAAAAACAAYAAAAAAAAAAAADAAYAAAABAAAAAAADAAUAAAAEAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAADAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAACAAAAAAAFAAIAAAAHAAAAAAAFAAMAAAAHAAAAAAAFAAQAAAADAAAAAAAFAAUAAAAEAAAAAAAFAAYAAAAEAAAAAAAEAAYAAAAEAAAAAAAEAAcAAAABAAAAAAADAAcAAAACAAAAAAADAAgAAAAAAAAAAAADAAkAAAABAAAAAAADAAoAAAADAAAAAAADAAsAAAADAAAAAAADAAwAAAAEAAAAAAADAA0AAAAEAAAAAAADAA4AAAADAAAAAAAEAA4AAAACAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAACAAAAAAAEAAsAAAACAAAAAAAEAAoAAAABAAAAAAAEAAkAAAAEAAAAAAAEAAgAAAADAAAAAAAFAAgAAAABAAAAAAAFAAcAAAAEAAAAAAAGAAcAAAACAAAAAAAGAAYAAAABAAAAAAAGAAUAAAAEAAAAAAAGAAQAAAABAAAAAAAGAAMAAAAHAAAAAAAGAAIAAAACAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAABAAAAAAAFAAkAAAAEAAAAAAAFAAoAAAABAAAAAAAFAAsAAAACAAAAAAAFAAwAAAABAAAAAAAFAA0AAAAAAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAGAA0AAAAEAAAAAAAGAAwAAAAEAAAAAAAGAAsAAAABAAAAAAAGAAoAAAAAAAAAAAAHAA0AAAABAAAAAAAHAA4AAAADAAAAAAAIAA4AAAABAAAAAAAIAA0AAAAEAAAAAAAIAAwAAAAHAAAAAAAIAAsAAAAHAAAAAAAIAAoAAAAHAAAAAAAIAAkAAAAHAAAAAAAIAAgAAAAHAAAAAAAIAAcAAAABAAAAAAAIAAYAAAABAAAAAAAIAAUAAAADAAAAAAAIAAQAAAABAAAAAAAIAAMAAAAHAAAAAAAIAAIAAAACAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAEAAAAAAAJAAIAAAADAAAAAAAJAAMAAAAHAAAAAAAJAAQAAAAHAAAAAAAJAAUAAAAHAAAAAAAJAAYAAAAHAAAAAAAJAAcAAAAHAAAAAAAJAAgAAAAHAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAHAAAAAAAJAAsAAAAEAAAAAAAJAAwAAAAHAAAAAAAJAA0AAAAHAAAAAAAJAA4AAAAHAAAAAAAKAA4AAAADAAAAAAAKAA0AAAABAAAAAAAKAAwAAAAHAAAAAAAKAAsAAAACAAAAAAAKAAoAAAAHAAAAAAAKAAkAAAABAAAAAAAKAAgAAAACAAAAAAAKAAcAAAAEAAAAAAAKAAYAAAAHAAAAAAAKAAUAAAABAAAAAAAKAAQAAAADAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAABAAAAAAAKAAEAAAAEAAAAAAALAAEAAAABAAAAAAALAAIAAAACAAAAAAALAAMAAAADAAAAAAALAAQAAAAEAAAAAAALAAUAAAABAAAAAAALAAYAAAADAAAAAAALAAcAAAABAAAAAAALAAgAAAADAAAAAAALAAkAAAAEAAAAAAALAAoAAAAHAAAAAAALAAsAAAAHAAAAAAALAAwAAAAHAAAAAAALAA0AAAAEAAAAAAALAA4AAAADAAAAAAAMAA4AAAAEAAAAAAAMAA0AAAAHAAAAAAAMAAwAAAAHAAAAAAAMAAsAAAAEAAAAAAAMAAoAAAACAAAAAAAMAAkAAAAAAAAAAAAMAAgAAAABAAAAAAAMAAcAAAAEAAAAAAAMAAYAAAACAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAEAAAAAAAMAAMAAAABAAAAAAAMAAIAAAAEAAAAAAAMAAEAAAAEAAAAAAANAAEAAAADAAAAAAANAAIAAAADAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAAAAAANAAUAAAAEAAAAAAANAAYAAAADAAAAAAANAAcAAAABAAAAAAANAAgAAAABAAAAAAANAAkAAAABAAAAAAANAAoAAAAEAAAAAAANAAsAAAADAAAAAAANAAwAAAAAAAAAAAANAA0AAAAHAAAAAAANAA4AAAACAAAAAAAOAA4AAAADAAAAAAAOAA0AAAAHAAAAAAAOAAwAAAADAAAAAAAOAAsAAAAEAAAAAAAOAAoAAAAAAAAAAAAOAAkAAAACAAAAAAAOAAgAAAACAAAAAAAOAAcAAAADAAAAAAAOAAYAAAACAAAAAAAOAAUAAAABAAAAAAAOAAQAAAAEAAAAAAAOAAMAAAADAAAAAAAOAAIAAAAEAAAAAAAOAAEAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_pdtm5")
+occlusion_enabled = false
 script = ExtResource("3_b3oru")
+spike_trap = ExtResource("9_omn1t")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1662639796]
 position = Vector2(67, 118)
@@ -177,6 +223,144 @@ text = "100"
 label_settings = SubResource("LabelSettings_iqjy0")
 horizontal_alignment = 2
 script = ExtResource("11_bekh1")
+
+[node name="Dig" type="TextureButton" parent="gui" unique_id=143138479 node_paths=PackedStringArray("label_text", "label_cost")]
+offset_left = -131.0
+offset_top = 32.0
+offset_right = -115.0
+offset_bottom = 48.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("AtlasTexture_l7nqg")
+texture_pressed = SubResource("AtlasTexture_w7ck5")
+script = ExtResource("13_ls4ot")
+label_text = NodePath("Text")
+label_cost = NodePath("Cost")
+
+[node name="Text" type="Label" parent="gui/Dig" unique_id=1643587158]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 102.0
+offset_bottom = 16.0
+text = "Dig"
+label_settings = SubResource("LabelSettings_a6hcy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="Label" parent="gui/Dig" unique_id=59743172]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 119.0
+offset_bottom = 16.0
+text = "1"
+label_settings = SubResource("LabelSettings_70t85")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SpikeTrap" type="TextureButton" parent="gui" unique_id=351877882 node_paths=PackedStringArray("label_text", "label_cost")]
+offset_left = -131.0
+offset_top = 52.0
+offset_right = -115.0
+offset_bottom = 68.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_iqjy0")
+texture_pressed = SubResource("AtlasTexture_a6hcy")
+script = ExtResource("13_ls4ot")
+build_type = 1
+build_cost = 5
+text = "Spike Trap"
+label_text = NodePath("Text")
+label_cost = NodePath("Cost")
+
+[node name="Text" type="Label" parent="gui/SpikeTrap" unique_id=1776968612]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 102.0
+offset_bottom = 16.0
+text = "Dig"
+label_settings = SubResource("LabelSettings_a6hcy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="Label" parent="gui/SpikeTrap" unique_id=1230519196]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 119.0
+offset_bottom = 16.0
+text = "1"
+label_settings = SubResource("LabelSettings_70t85")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Balista" type="TextureButton" parent="gui" unique_id=928654572 node_paths=PackedStringArray("label_text", "label_cost")]
+offset_left = -131.0
+offset_top = 73.0
+offset_right = -115.0
+offset_bottom = 89.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_2nn5w")
+texture_pressed = SubResource("AtlasTexture_ou4v7")
+script = ExtResource("13_ls4ot")
+build_type = 2
+build_cost = 20
+text = "Ballista"
+label_text = NodePath("Text")
+label_cost = NodePath("Cost")
+
+[node name="Text" type="Label" parent="gui/Balista" unique_id=109812272]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 102.0
+offset_bottom = 16.0
+text = "Dig"
+label_settings = SubResource("LabelSettings_a6hcy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="Label" parent="gui/Balista" unique_id=1628558063]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 119.0
+offset_bottom = 16.0
+text = "1"
+label_settings = SubResource("LabelSettings_70t85")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Wall" type="TextureButton" parent="gui" unique_id=1848115466 node_paths=PackedStringArray("label_text", "label_cost")]
+offset_left = -131.0
+offset_top = 94.0
+offset_right = -115.0
+offset_bottom = 110.0
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_53hnx")
+texture_pressed = SubResource("AtlasTexture_mxqdg")
+script = ExtResource("13_ls4ot")
+build_type = 4
+build_cost = 10
+text = "Wall"
+label_text = NodePath("Text")
+label_cost = NodePath("Cost")
+
+[node name="Text" type="Label" parent="gui/Wall" unique_id=2113676750]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 102.0
+offset_bottom = 16.0
+text = "Dig"
+label_settings = SubResource("LabelSettings_a6hcy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="Label" parent="gui/Wall" unique_id=1001590877]
+layout_mode = 0
+offset_left = 100.0
+offset_right = 119.0
+offset_bottom = 16.0
+text = "1"
+label_settings = SubResource("LabelSettings_70t85")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="border" type="Node2D" parent="." unique_id=294423306]
 
