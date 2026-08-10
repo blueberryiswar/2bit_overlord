@@ -5,5 +5,5 @@ extends AnimatedSprite2D
 func _ready() -> void:
 	GameManager.gold_changed.connect(_on_coins_changed)
 	
-func _on_coins_changed(coins):
+func _on_coins_changed(_coins):
 	play("coin")

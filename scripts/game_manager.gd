@@ -27,7 +27,7 @@ var build_phase : bool = true :
 		build_phase = value
 		build_phase_changed.emit(build_phase)
 
-var gold : int = 100 :
+var gold : int = 40 :
 	set(value):
 		gold = value
 		gold_changed.emit(gold)
@@ -45,3 +45,7 @@ func _on_build_type_switched(build_type: BuildType, build_cost: int) -> void:
 	current_build_type = build_type
 	current_build_cost = build_cost
 	build_type_changed.emit(current_build_type)
+	
+func next_wave():
+	build_phase = true
+	wave += 1

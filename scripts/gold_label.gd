@@ -6,3 +6,4 @@ func _ready():
 
 func _on_coins_changed(new_amount: int):
 	text = "%d" % new_amount
+	

@@ -14,16 +14,7 @@ func _ready():
 	astar_grid.cell_size = Vector2(16,16)
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	astar_grid.update()
-	
-	for x in tile_map.get_used_rect().size.x:
-		for y in tile_map.get_used_rect().size.y:
-			var tile_position = Vector2i(
-				x + tile_map.get_used_rect().position.x
-				,y + tile_map.get_used_rect().position.y )
-			var ground_data = tile_map.get_cell_tile_data(tile_position)
-			
-			if ground_data != null and ground_data.get_custom_data("wall"):
-				astar_grid.set_point_solid(tile_position)
+	update()
 
 func get_my_path(start, to):
 	var id_path = astar_grid.get_id_path(
@@ -45,6 +36,22 @@ func move_solid(old_position, new_position):
 	if(old_position):
 		astar_grid.set_point_solid(tile_map.local_to_map(old_position), false)
 	astar_grid.set_point_solid(tile_map.local_to_map(new_position))
+	
+func has_valid_path(entrance: Vector2i, chest: Vector2i, exit: Vector2i) -> bool:
+	update()
+
+	if astar_grid.is_point_solid(entrance) or astar_grid.is_point_solid(chest) or astar_grid.is_point_solid(exit):
+		return false
+
+	var entrance_to_chest = astar_grid.get_id_path(entrance, chest)
+	if entrance_to_chest.is_empty():
+		return false
+
+	var chest_to_exit = astar_grid.get_id_path(chest, exit)
+	if chest_to_exit.is_empty():
+		return false
+
+	return true
 
 func update():
 	for x in tile_map.get_used_rect().size.x:
@@ -58,26 +65,3 @@ func update():
 				astar_grid.set_point_solid(tile_position)
 			else:
 				astar_grid.set_point_solid(tile_position, false)
-
-func find_nearest_storage(my_position: Vector2):
-	var closestStorage : Vector2
-	var distance = 9999999	
-	
-	
-	for x in tile_map.get_used_rect().size.x:
-		for y in tile_map.get_used_rect().size.y:
-			var tile_position = Vector2i(
-				x + tile_map.get_used_rect().position.x
-				,y + tile_map.get_used_rect().position.y )
-			var structure_data = tile_map.structure.get_cell_tile_data(tile_position)
-			if structure_data != null:
-				if structure_data.terrain_set == 2:
-					storages_in_world.append(tile_position)
-	if !storages_in_world.is_empty():
-		for storage in storages_in_world:
-			storage = tile_map.gridToGlobalPos(storage)
-			var distance_new = get_my_path(my_position, storage).size()
-			if(distance_new < distance):
-				distance = distance_new
-			closestStorage = storage
-	return closestStorage
