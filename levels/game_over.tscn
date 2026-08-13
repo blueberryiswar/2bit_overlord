@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://00gxln7ksnvd"]
+
+[node name="GameOver" type="Node2D" unique_id=2036332516]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=753038675]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1547148457]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -10.0
+offset_right = 68.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1295396734]
+zoom = Vector2(2, 2)

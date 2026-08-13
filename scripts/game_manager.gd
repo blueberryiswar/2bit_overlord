@@ -31,12 +31,16 @@ var gold : int = 40 :
 	set(value):
 		gold = value
 		gold_changed.emit(gold)
+		
+const GAME_OVER_SCENE := "res://levels/game_over.tscn"
 
 func add_gold(amount: int) -> void:
 	gold += amount
 
 func remove_gold(amount: int) -> void:
 	gold = max(0, gold - amount)
+	if(gold == 0):
+		game_over()
 
 func can_afford(amount: int) -> bool:
 	return gold >= amount
@@ -49,3 +53,6 @@ func _on_build_type_switched(build_type: BuildType, build_cost: int) -> void:
 func next_wave():
 	build_phase = true
 	wave += 1
+
+func game_over():
+	get_tree().change_scene_to_file(GAME_OVER_SCENE)
