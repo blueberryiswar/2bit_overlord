@@ -23,6 +23,16 @@ script = ExtResource("2_ls4ot")
 enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
 metadata/_custom_type_script = "uid://c6svssa8dy2v3"
 
+[sub_resource type="Resource" id="Resource_ls4ot"]
+script = ExtResource("2_ls4ot")
+enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+metadata/_custom_type_script = "uid://c6svssa8dy2v3"
+
+[sub_resource type="Resource" id="Resource_tx362"]
+script = ExtResource("2_ls4ot")
+enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+metadata/_custom_type_script = "uid://c6svssa8dy2v3"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
 texture = ExtResource("2_pdtm5")
 0:0/0 = 0
@@ -169,7 +179,7 @@ animations = [{
 
 [node name="Level" type="Node2D" unique_id=592820759 node_paths=PackedStringArray("pathfinder", "tile_map") groups=["level"]]
 script = ExtResource("1_sjb42")
-waves = Array[ExtResource("2_ls4ot")]([SubResource("Resource_a5s8o")])
+waves = Array[ExtResource("2_ls4ot")]([SubResource("Resource_a5s8o"), SubResource("Resource_ls4ot"), SubResource("Resource_tx362")])
 pathfinder = NodePath("Pathfinder")
 tile_map = NodePath("Map")
 

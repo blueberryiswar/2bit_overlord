@@ -8,6 +8,7 @@ const POS_CHEST : Vector2i = Vector2i(8,8)
 @export var treasure_scene : PackedScene
 
 var occupied_spaces : Dictionary = {}
+var build_active : bool = false
 
 func _ready() -> void:
 	place_treasure()
@@ -15,6 +16,15 @@ func _ready() -> void:
 func _input(event):
 	# Mouse in viewport coordinates.
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and GameManager.build_phase:
+		var current_pos = get_local_mouse_position()
+		try_to_build(current_pos)
+		build_active = true
+		
+	if event is InputEventMouseButton and event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT and GameManager.build_phase:
+		build_active = false
+
+func _process(_delta: float) -> void:
+	if build_active and Input.is_action_pressed("build"):
 		var current_pos = get_local_mouse_position()
 		try_to_build(current_pos)
 

@@ -22,11 +22,21 @@ func try_to_start_wave() -> void:
 
 func wave_start():
 	var currentWave = waves[GameManager.wave - 1]
+	remaining_enemies = currentWave.enemies.size()
 	var entrances = get_tree().get_nodes_in_group("entrance")
 	
 	for entrance in entrances:
+		entrance.set_level_manager(self)
 		entrance.set_heroes(currentWave.enemies)
-		remaining_enemies = currentWave.enemies.size()
 		var target = tile_map.POS_CHEST
 		entrance.set_target(target)
 		entrance.spawn_hero()
+		
+func end_wave():
+	GameManager.next_wave()
+	GameManager.build_phase = true
+		
+func on_hero_died() -> void:
+	remaining_enemies -= 1
+	if(remaining_enemies <= 0):
+		end_wave()
