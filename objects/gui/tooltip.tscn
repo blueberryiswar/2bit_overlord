@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dnv5bgntntdlf"]
+
+[ext_resource type="Theme" uid="uid://djoe2wm4vo5yv" path="res://assets/overlord.tres" id="1_djsjv"]
+[ext_resource type="Script" uid="uid://dsdahwcm3wypy" path="res://objects/gui/tooltip_container.gd" id="2_icqa6"]
+[ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="2_wcr5a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icqa6"]
+content_margin_left = 8.0
+content_margin_top = 5.0
+content_margin_right = 8.0
+content_margin_bottom = 5.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_detail = 5
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5s8o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
+font = ExtResource("2_wcr5a")
+font_size = 8
+font_color = Color(1, 0.6666667, 0, 1)
+
+[node name="TooltipCanvas" type="CanvasLayer" unique_id=187873975]
+layer = 100
+script = ExtResource("2_icqa6")
+
+[node name="TooltipContainer" type="PanelContainer" parent="." unique_id=1363874290]
+offset_right = 56.0
+offset_bottom = 34.0
+theme = ExtResource("1_djsjv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_icqa6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TooltipContainer" unique_id=1442237315]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="TooltipContainer/VBoxContainer" unique_id=1089733428]
+layout_mode = 2
+theme = ExtResource("1_djsjv")
+text = "Title"
+label_settings = SubResource("LabelSettings_a5s8o")
+
+[node name="CostLabel" type="Label" parent="TooltipContainer/VBoxContainer" unique_id=123341836]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_iqjy0")
+horizontal_alignment = 2

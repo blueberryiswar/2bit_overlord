@@ -1,10 +1,17 @@
+class_name LevelManager
+
 extends Node2D
 
 @export var waves : Array[Wave]
+
 @export var pathfinder : Pathfinder
 @export var tile_map : TileMapLayer
 
 var remaining_enemies : int = 99
+
+func _ready() -> void:
+	GameManager.hero_died.connect(on_hero_exit)
+	GameManager.hero_escaped.connect(on_hero_exit)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("ui_select") and GameManager.build_phase:
@@ -26,7 +33,6 @@ func wave_start():
 	var entrances = get_tree().get_nodes_in_group("entrance")
 	
 	for entrance in entrances:
-		entrance.set_level_manager(self)
 		entrance.set_heroes(currentWave.enemies)
 		var target = tile_map.POS_CHEST
 		entrance.set_target(target)
@@ -36,7 +42,7 @@ func end_wave():
 	GameManager.next_wave()
 	GameManager.build_phase = true
 		
-func on_hero_died() -> void:
+func on_hero_exit() -> void:
 	remaining_enemies -= 1
 	if(remaining_enemies <= 0):
 		end_wave()

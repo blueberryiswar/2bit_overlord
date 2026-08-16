@@ -31,11 +31,12 @@ func updateSprite():
 	if coins < 10:
 		frame = frame + coins
 	$Sprite2D.frame = frame
+	$Sprite2D.visible = true
 	
 func steal_coin():
 	coins-= 1
 	if coins == 0:
-		queue_free()
+		$Sprite2D.visible = false
 	updateSprite()
 	
 func _on_gold_changed(new_coins):

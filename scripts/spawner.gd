@@ -4,7 +4,6 @@ extends Node2D
 @export var spawnDelay : float = 1.0
 @export var pathfinder : Pathfinder
 var target = Vector2i(8,8)
-var level_manager : Node2D
 
 func spawn_hero() -> void:
 	if(heroes.is_empty()):
@@ -17,7 +16,6 @@ func spawn_hero() -> void:
 	hero.global_position = global_position
 	hero.start_path_to(target)
 	heroes.remove_at(0)
-	hero.on_hero_died.connect(level_manager.on_hero_died)
 	await get_tree().create_timer(spawnDelay).timeout
 	spawn_hero()
 
@@ -29,6 +27,3 @@ func set_heroes(new_heroes : Array[PackedScene]):
 	
 func add_hero(hero : PackedScene):
 	heroes.append(hero)
-
-func set_level_manager(new_level_manager : Node2D) -> void:
-	level_manager = new_level_manager

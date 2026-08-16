@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dotgnepjd1qci"]
+
+[ext_resource type="Texture2D" uid="uid://bpd17lxp4qcn4" path="res://assets/Buttones.png" id="1_2jpa3"]
+[ext_resource type="Script" uid="uid://b5kcdlo1jlaft" path="res://scripts/action_button.gd" id="2_2pqu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7nqg"]
+atlas = ExtResource("1_2jpa3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ck5"]
+atlas = ExtResource("1_2jpa3")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Dig" type="TextureButton" unique_id=546656483]
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_l7nqg")
+texture_pressed = SubResource("AtlasTexture_w7ck5")
+script = ExtResource("2_2pqu8")

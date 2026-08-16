@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-signal on_hero_died
-
 @export var pathfinder : Pathfinder
 @export var tile_map : TileMapLayer
 @export var health : int = 1
@@ -69,7 +67,7 @@ func take_damage(damage : int):
 		die()
 
 func escaped():
-	on_hero_died.emit()
+	GameManager.on_hero_escaped()
 	queue_free()
 
 func die():
@@ -77,5 +75,5 @@ func die():
 	remains.set_coin_value(coins)
 	get_tree().current_scene.add_child(remains)
 	remains.global_position = global_position
-	on_hero_died.emit()
+	GameManager.on_hero_died()
 	queue_free()
