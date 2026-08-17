@@ -1,3 +1,4 @@
+class_name Hero
 extends CharacterBody2D
 
 @export var pathfinder : Pathfinder

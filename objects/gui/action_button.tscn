@@ -12,6 +12,7 @@ atlas = ExtResource("1_2jpa3")
 region = Rect2(16, 0, 16, 16)
 
 [node name="Dig" type="TextureButton" unique_id=546656483]
+offset_transform_enabled = true
 toggle_mode = true
 texture_normal = SubResource("AtlasTexture_l7nqg")
 texture_pressed = SubResource("AtlasTexture_w7ck5")

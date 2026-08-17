@@ -34,6 +34,8 @@ func _on_build_type_changed(current_build_type : GameManager.BuildType) -> void:
 
 func _on_mouse_entered() -> void:
 	TooltipManager.show_tooltip(text, build_cost)
+	offset_transform_scale = Vector2(1.2, 1.2)
 	
 func _on_mouse_exited() -> void:
 	TooltipManager.hide_tooltip()
+	offset_transform_scale = Vector2(1.0, 1.0)

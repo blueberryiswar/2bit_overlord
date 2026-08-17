@@ -24,6 +24,8 @@ func set_coin_value(value : int):
 	coin_value = value
 
 func collect_coin():
+	if looted:
+		return
 	looted = true
 	$AnimatedSprite2D.play("looted")
 	collected_coin.emit(coin_value)

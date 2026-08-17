@@ -34,6 +34,7 @@ treasure=""
 exit=""
 trap=""
 level=""
+remains=""
 
 [gui]
 

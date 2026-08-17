@@ -21,7 +21,7 @@ anti_aliasing = false
 
 [sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
 font = ExtResource("2_wcr5a")
-font_size = 8
+font_size = 12
 font_color = Color(1, 0.6666667, 0, 1)
 
 [node name="TooltipCanvas" type="CanvasLayer" unique_id=187873975]

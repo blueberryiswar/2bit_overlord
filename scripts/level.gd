@@ -39,6 +39,7 @@ func wave_start():
 		entrance.spawn_hero()
 		
 func end_wave():
+	collect_remains()
 	GameManager.next_wave()
 	GameManager.build_phase = true
 		
@@ -46,3 +47,10 @@ func on_hero_exit() -> void:
 	remaining_enemies -= 1
 	if(remaining_enemies <= 0):
 		end_wave()
+
+func collect_remains() -> void:
+	var all_remains = get_tree().get_nodes_in_group("remains")
+	
+	for remains in all_remains:
+		remains.collect_coin()
+		remains.queue_free()

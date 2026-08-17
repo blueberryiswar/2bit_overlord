@@ -1,3 +1,4 @@
+class_name Trap
 extends Node2D
 
 signal trap_removed(position : Vector2)
