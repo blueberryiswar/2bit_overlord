@@ -67,11 +67,15 @@ texture = ExtResource("4_erhed")
 4:0/0/custom_data_0 = true
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/custom_data_0 = true
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/custom_data_0 = true
+6:0/0/custom_data_1 = true
 7:0/0 = 0
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/custom_data_0 = true
 9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -90,6 +94,8 @@ texture = ExtResource("4_erhed")
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "wall"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "solid"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b3oru")
 
 [sub_resource type="Gradient" id="Gradient_omn1t"]

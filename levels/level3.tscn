@@ -66,6 +66,8 @@ texture = ExtResource("4_g38f6")
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/custom_data_0 = true
+6:0/0/custom_data_1 = true
 7:0/0 = 0
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -87,6 +89,8 @@ texture = ExtResource("4_g38f6")
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "wall"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "solid"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b3oru")
 
 [sub_resource type="Gradient" id="Gradient_omn1t"]
@@ -158,7 +162,7 @@ tile_map_data = PackedByteArray("AAABAAQAAAAHAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAA
 tile_set = SubResource("TileSet_pdtm5")
 occlusion_enabled = false
 script = ExtResource("5_u3me6")
-trap_scenes = Dictionary[Variant, PackedScene]({
+trap_scenes = Dictionary[int, PackedScene]({
 1: ExtResource("6_4sv2i"),
 2: ExtResource("7_6slt7"),
 3: ExtResource("8_43cms"),

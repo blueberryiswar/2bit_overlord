@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://ddbexhrevy16k"]
+
+[ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="1_bw7nh"]
+[ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="2_shmgq"]
+[ext_resource type="PackedScene" uid="uid://dotgnepjd1qci" path="res://objects/gui/action_button.tscn" id="3_qsldq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
+font = ExtResource("1_bw7nh")
+font_color = Color(1, 0.6666667, 0, 1)
+
+[node name="gui" type="CanvasLayer" unique_id=1718052692]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="." unique_id=1963473990]
+offset_left = -96.0
+offset_right = -32.0
+offset_bottom = 20.0
+tooltip_text = "Gold you currently own."
+mouse_filter = 1
+text = "100"
+label_settings = SubResource("LabelSettings_iqjy0")
+horizontal_alignment = 2
+script = ExtResource("2_shmgq")
+
+[node name="ActionMenu" type="GridContainer" parent="." unique_id=2096154285]
+offset_left = -112.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 128.0
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="Dig" parent="ActionMenu" unique_id=546656483 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+button_pressed = true
+buttonColumn = 4
+
+[node name="SpikeTrap" parent="ActionMenu" unique_id=1460937674 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+build_type = 1
+build_cost = 3
+text = "Spike Trap"
+buttonColumn = 0
+
+[node name="Balista" parent="ActionMenu" unique_id=1287113152 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+build_type = 2
+build_cost = 5
+text = "Balista"
+
+[node name="Wall" parent="ActionMenu" unique_id=934437114 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+build_type = 4
+build_cost = 5
+text = "Wall"
+buttonColumn = 6
+
+[node name="Fire" parent="ActionMenu" unique_id=1158851670 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+build_type = 3
+build_cost = 5
+text = "Firetrap"
+buttonColumn = 10
+
+[node name="Mimic" parent="ActionMenu" unique_id=738095045 instance=ExtResource("3_qsldq")]
+layout_mode = 2
+build_type = 6
+build_cost = 10
+text = "Portal"
+buttonColumn = 8
