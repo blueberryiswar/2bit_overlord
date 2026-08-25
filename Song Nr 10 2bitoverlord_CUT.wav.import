@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cils1wjbjaa6y"
+path="res://.godot/imported/Song Nr 10 2bitoverlord_CUT.wav-513243b95000ae6c9c93459d72010ded.sample"
+
+[deps]
+
+source_file="res://Song Nr 10 2bitoverlord_CUT.wav"
+dest_files=["res://.godot/imported/Song Nr 10 2bitoverlord_CUT.wav-513243b95000ae6c9c93459d72010ded.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

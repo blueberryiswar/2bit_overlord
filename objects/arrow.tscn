@@ -12,6 +12,7 @@ size = Vector2(8, 10)
 
 [node name="Arrow" type="RigidBody2D" unique_id=362981390]
 script = ExtResource("1_ledw7")
+damage = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=516469234]
 position = Vector2(0, 8)

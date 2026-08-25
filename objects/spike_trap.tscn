@@ -74,6 +74,7 @@ animations = [{
 
 [node name="SpikeTrap" type="Node2D" unique_id=1952756675 groups=["trap"]]
 script = ExtResource("1_mu043")
+damage = 6
 
 [node name="Pivot" type="Node2D" parent="." unique_id=756050088]
 position = Vector2(8, 8)
