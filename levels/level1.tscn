@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bsx2yewb0rfi1" path="res://scripts/map.gd" id="3_b3oru"]
 [ext_resource type="Script" uid="uid://dv5liv8b8dsyv" path="res://scripts/pathfinder.gd" id="4_ua5ty"]
 [ext_resource type="PackedScene" uid="uid://dqdt5apq6pamf" path="res://objects/spawner.tscn" id="5_61w3m"]
-[ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/knight.tscn" id="6_pdpul"]
+[ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/heroes/knight.tscn" id="6_pdpul"]
 [ext_resource type="PackedScene" uid="uid://devf7u7q0udqi" path="res://objects/balista.tscn" id="7_ls4ot"]
 [ext_resource type="PackedScene" uid="uid://c4honmkmmfvs8" path="res://objects/exit.tscn" id="8_045es"]
 [ext_resource type="PackedScene" uid="uid://ci6ej57maitvm" path="res://objects/wall.tscn" id="8_tx362"]

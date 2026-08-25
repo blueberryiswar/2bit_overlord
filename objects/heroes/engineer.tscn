@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://coh7kq8s4xquc"]
+[gd_scene format=3 uid="uid://lku81o7o7j7m"]
 
-[ext_resource type="Script" uid="uid://c6taim852h4b1" path="res://scripts/hero.gd" id="1_ag87y"]
-[ext_resource type="Texture2D" uid="uid://bmw0atot5k7p3" path="res://assets/paladin.png" id="1_xnh7u"]
-[ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="2_1wu7s"]
+[ext_resource type="Script" uid="uid://c6taim852h4b1" path="res://scripts/hero.gd" id="1_6dxuo"]
+[ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="2_vrbyr"]
+[ext_resource type="Texture2D" uid="uid://c37ak60ts44ls" path="res://assets/engineer.png" id="3_6dxuo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
 size = Vector2(16, 16)
@@ -98,20 +98,21 @@ _data = {
 &"walk": SubResource("Animation_473db")
 }
 
-[node name="Knight" type="CharacterBody2D" unique_id=82000007 groups=["hero"]]
+[node name="Engi" type="CharacterBody2D" unique_id=82000007 groups=["hero"]]
 z_index = 1
 collision_layer = 131
 collision_mask = 131
-script = ExtResource("1_ag87y")
-health = 5
-coins = 3
+script = ExtResource("1_6dxuo")
+health = 4
+coins = 5
+steals_amount = 3
 
-[node name="StatusEffectReceiver" parent="." unique_id=557122280 instance=ExtResource("2_1wu7s")]
+[node name="StatusEffectReceiver" parent="." unique_id=557122280 instance=ExtResource("2_vrbyr")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=893579234]
 z_index = 1
 position = Vector2(8, 8)
-texture = ExtResource("1_xnh7u")
+texture = ExtResource("3_6dxuo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845370382]
 position = Vector2(8, 8)

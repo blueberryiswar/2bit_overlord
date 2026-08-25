@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://coh7kq8s4xquc"]
+
+[ext_resource type="Script" uid="uid://c6taim852h4b1" path="res://scripts/hero.gd" id="1_ag87y"]
+[ext_resource type="Texture2D" uid="uid://bmw0atot5k7p3" path="res://assets/paladin.png" id="1_xnh7u"]
+[ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="2_1wu7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_ag87y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1wu7s"]
+resource_name = "idle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_473db"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100035, 0.19911799),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(8, 6), Vector2(8, 9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.100035, 0.19911799),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.11868239, -0.23736478]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p5tsm"]
+_data = {
+&"RESET": SubResource("Animation_ag87y"),
+&"idle": SubResource("Animation_1wu7s"),
+&"walk": SubResource("Animation_473db")
+}
+
+[node name="Knight" type="CharacterBody2D" unique_id=82000007 groups=["hero"]]
+z_index = 1
+collision_layer = 131
+collision_mask = 131
+script = ExtResource("1_ag87y")
+health = 8
+coins = 3
+
+[node name="StatusEffectReceiver" parent="." unique_id=557122280 instance=ExtResource("2_1wu7s")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=893579234]
+z_index = 1
+position = Vector2(8, 8)
+texture = ExtResource("1_xnh7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=845370382]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_iqjy0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1711429872]
+libraries/ = SubResource("AnimationLibrary_p5tsm")
+autoplay = &"walk"
