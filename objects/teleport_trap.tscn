@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://d0mdlhey7jkon"]
+
+[ext_resource type="Script" uid="uid://jlmgcwjtjgpe" path="res://scripts/teleport_trap.gd" id="1_j61in"]
+[ext_resource type="Texture2D" uid="uid://dwcbowt1rv1bk" path="res://assets/spiral.png" id="2_05s4g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q2un"]
+atlas = ExtResource("2_05s4g")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gbdt"]
+atlas = ExtResource("2_05s4g")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqjy0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q2un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gbdt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6hcy"]
+
+[node name="TeleTrap" type="Node2D" unique_id=1952756675 groups=["trap"]]
+script = ExtResource("1_j61in")
+
+[node name="Pivot" type="Node2D" parent="." unique_id=756050088]
+position = Vector2(8, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=1145837448]
+sprite_frames = SubResource("SpriteFrames_iqjy0")
+autoplay = "default"
+frame_progress = 0.8418797
+
+[node name="Trigger" type="Area2D" parent="Pivot" unique_id=566612508]
+position = Vector2(-8, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Trigger" unique_id=1532470896]
+position = Vector2(8, 8)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_a6hcy")
+
+[connection signal="animation_finished" from="Pivot/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="Pivot/Trigger" to="." method="_on_trigger_body_entered"]

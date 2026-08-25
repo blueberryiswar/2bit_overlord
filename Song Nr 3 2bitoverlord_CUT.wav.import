@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/Song Nr 3 2bitoverlord_CUT.wav-229a7626ae2cb9
 
 force/8_bit=true
 force/mono=false
-force/max_rate=false
+force/max_rate=true
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false

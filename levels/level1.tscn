@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci6ej57maitvm" path="res://objects/wall.tscn" id="8_tx362"]
 [ext_resource type="PackedScene" uid="uid://bh55mopm64re6" path="res://objects/fire_trap.tscn" id="9_l7nqg"]
 [ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="9_omn1t"]
+[ext_resource type="PackedScene" uid="uid://d0mdlhey7jkon" path="res://objects/teleport_trap.tscn" id="10_53hnx"]
 [ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="10_yydhl"]
 [ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="11_bekh1"]
 [ext_resource type="Texture2D" uid="uid://bq8l6tq7roeav" path="res://assets/boneborder.png" id="12_bekh1"]
@@ -155,7 +156,8 @@ trap_scenes = Dictionary[int, PackedScene]({
 1: ExtResource("9_omn1t"),
 2: ExtResource("7_ls4ot"),
 3: ExtResource("9_l7nqg"),
-4: ExtResource("8_tx362")
+4: ExtResource("8_tx362"),
+6: ExtResource("10_53hnx")
 })
 treasure_scene = ExtResource("2_8hd6v")
 
@@ -242,9 +244,9 @@ buttonColumn = 10
 
 [node name="Mimic" parent="gui/ActionMenu" unique_id=1605487180 instance=ExtResource("13_tx362")]
 layout_mode = 2
-build_type = 5
+build_type = 6
 build_cost = 10
-text = "Mimic"
+text = "Portal"
 buttonColumn = 8
 
 [node name="border" type="Node2D" parent="." unique_id=294423306]

@@ -24,7 +24,15 @@ func start_path_to(goal_map_pos: Vector2i):
 	path_queue.clear()
 	for p in points:
 		path_queue.append(tile_map.to_global(p))
-	print(path_queue)
+
+func reset_path():
+	var local_start = tile_map.to_local(global_position)
+	var treasures = get_tree().get_nodes_in_group("treasure")
+	var local_goal = tile_map.to_local(treasures[0].global_position)
+	var points = pathfinder.get_my_points(local_start, local_goal)
+	path_queue.clear()
+	for p in points:
+		path_queue.append(tile_map.to_global(p))
 
 func _physics_process(delta):
 	if path_queue.is_empty():
