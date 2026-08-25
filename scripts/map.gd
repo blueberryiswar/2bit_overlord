@@ -71,9 +71,13 @@ func grid_to_global(gridPos : Vector2i) -> Vector2:
 func is_wall(gridPos : Vector2i) -> bool:
 	var data = get_cell_tile_data(gridPos)
 	return data != null and data.get_custom_data("wall")
+	
+func is_solid(gridPos : Vector2i) -> bool:
+	var data = get_cell_tile_data(gridPos)
+	return data != null and data.get_custom_data("solid")
 
 func dig_into_wall(gridPos:Vector2i) -> void:
-	if is_wall(gridPos):
+	if is_wall(gridPos) and !is_solid(gridPos):
 		set_cell(gridPos, 0, TILE_FLOOR)
 	
 func place_treasure():	

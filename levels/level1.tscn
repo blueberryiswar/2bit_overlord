@@ -5,7 +5,9 @@
 [ext_resource type="Script" uid="uid://c6svssa8dy2v3" path="res://scripts/wave.gd" id="2_ls4ot"]
 [ext_resource type="Texture2D" uid="uid://b87ykqwmhw61x" path="res://assets/tilemap.png" id="2_pdtm5"]
 [ext_resource type="Script" uid="uid://bsx2yewb0rfi1" path="res://scripts/map.gd" id="3_b3oru"]
+[ext_resource type="PackedScene" uid="uid://ca7cpmliqpdve" path="res://objects/heroes/rogue.tscn" id="3_tv7bq"]
 [ext_resource type="Script" uid="uid://dv5liv8b8dsyv" path="res://scripts/pathfinder.gd" id="4_ua5ty"]
+[ext_resource type="PackedScene" uid="uid://dflabt8k8aqcc" path="res://objects/heroes/mage.tscn" id="4_wieee"]
 [ext_resource type="PackedScene" uid="uid://dqdt5apq6pamf" path="res://objects/spawner.tscn" id="5_61w3m"]
 [ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/heroes/knight.tscn" id="6_pdpul"]
 [ext_resource type="PackedScene" uid="uid://devf7u7q0udqi" path="res://objects/balista.tscn" id="7_ls4ot"]
@@ -26,17 +28,17 @@
 
 [sub_resource type="Resource" id="Resource_a5s8o"]
 script = ExtResource("2_ls4ot")
-enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+enemies = Array[PackedScene]([ExtResource("3_tv7bq"), ExtResource("3_tv7bq"), ExtResource("3_tv7bq"), ExtResource("4_wieee")])
 metadata/_custom_type_script = "uid://c6svssa8dy2v3"
 
 [sub_resource type="Resource" id="Resource_ls4ot"]
 script = ExtResource("2_ls4ot")
-enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+enemies = Array[PackedScene]([ExtResource("3_tv7bq"), ExtResource("4_wieee"), ExtResource("3_tv7bq"), ExtResource("3_tv7bq"), ExtResource("6_pdpul")])
 metadata/_custom_type_script = "uid://c6svssa8dy2v3"
 
 [sub_resource type="Resource" id="Resource_tx362"]
 script = ExtResource("2_ls4ot")
-enemies = Array[PackedScene]([ExtResource("6_pdpul"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
+enemies = Array[PackedScene]([ExtResource("4_wieee"), ExtResource("6_pdpul"), ExtResource("6_pdpul")])
 metadata/_custom_type_script = "uid://c6svssa8dy2v3"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
@@ -58,11 +60,15 @@ texture = ExtResource("2_pdtm5")
 4:0/0/custom_data_0 = true
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/custom_data_0 = true
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/custom_data_0 = true
+6:0/0/custom_data_1 = true
 7:0/0 = 0
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/custom_data_0 = true
 9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -81,6 +87,8 @@ texture = ExtResource("2_pdtm5")
 physics_layer_0/collision_layer = 1
 custom_data_layer_0/name = "wall"
 custom_data_layer_0/type = 1
+custom_data_layer_1/name = "solid"
+custom_data_layer_1/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b3oru")
 
 [sub_resource type="Gradient" id="Gradient_omn1t"]
