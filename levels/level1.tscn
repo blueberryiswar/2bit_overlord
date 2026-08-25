@@ -19,6 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://bt4lyydfqbavy" path="res://assets/coin_label.png" id="13_8bcou"]
 [ext_resource type="PackedScene" uid="uid://dotgnepjd1qci" path="res://objects/gui/action_button.tscn" id="13_tx362"]
 [ext_resource type="Script" uid="uid://bx0iops8mjhug" path="res://scripts/coin_symbol.gd" id="14_f7u7y"]
+[ext_resource type="AudioStream" uid="uid://qvwvmsuos1ct" path="res://Song Nr 3 2bitoverlord_CUT.wav" id="20_ou4v7"]
+[ext_resource type="Script" uid="uid://cyewauhu06pus" path="res://scripts/music_player.gd" id="21_53hnx"]
+[ext_resource type="AudioStream" uid="uid://cils1wjbjaa6y" path="res://Song Nr 10 2bitoverlord_CUT.wav" id="22_mxqdg"]
 
 [sub_resource type="Resource" id="Resource_a5s8o"]
 script = ExtResource("2_ls4ot")
@@ -273,3 +276,9 @@ autoplay = "default"
 frame = 3
 frame_progress = 1.0
 script = ExtResource("14_f7u7y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=596244833]
+stream = ExtResource("20_ou4v7")
+script = ExtResource("21_53hnx")
+build_phase = ExtResource("22_mxqdg")
+fight_phase = ExtResource("20_ou4v7")

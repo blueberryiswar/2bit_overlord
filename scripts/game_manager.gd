@@ -10,7 +10,6 @@ signal build_phase_changed(state : bool)
 signal hero_died
 signal hero_escaped
 
-		
 
 var current_build_type : BuildType = BuildType.DIG
 var current_build_cost : int = 1
