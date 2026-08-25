@@ -38,7 +38,7 @@ func try_to_build(current_pos : Vector2):
 
 func place_build(map_coords: Vector2i, build_type : GameManager.BuildType) -> void:
 	if build_type == GameManager.BuildType.DIG:
-		if not is_wall(map_coords):
+		if not is_wall(map_coords) or is_solid(map_coords):
 			return
 		GameManager.remove_gold(GameManager.current_build_cost)
 		dig_into_wall(map_coords)
