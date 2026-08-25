@@ -12,6 +12,7 @@ var remaining_enemies : int = 99
 func _ready() -> void:
 	GameManager.hero_died.connect(on_hero_exit)
 	GameManager.hero_escaped.connect(on_hero_exit)
+	GameManager.number_of_waves = waves.size()
 
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("ui_select") and GameManager.build_phase:

@@ -24,6 +24,7 @@ var wave : int = 1 :
 		wave = value
 		wave_changed.emit(wave)
 		
+var number_of_waves : int = 1
 var build_phase : bool = true :
 	set(value):
 		build_phase = value
@@ -38,6 +39,7 @@ var heroes_escaped : int = 0
 var heroes_died : int = 0
 		
 const GAME_OVER_SCENE := "res://levels/game_over.tscn"
+const LEVELS : Array[String] = ["res://levels/level1.tscn","res://levels/level2.tscn","res://levels/level3.tscn","res://levels/level4.tscn","res://levels/level1.tscn","res://levels/level5.tscn","res://levels/level1.tscn","res://levels/level6.tscn","res://levels/level7.tscn","res://levels/level8.tscn","res://levels/level1.tscn","res://levels/level9.tscn"]
 
 func add_gold(amount: int) -> void:
 	gold += amount
@@ -57,9 +59,17 @@ func next_wave():
 	if(gold == 0):
 		game_over()
 		return
+	if(wave + 1 > number_of_waves):
+		next_level()
+		return
 	build_phase = true
 	wave += 1
 
+func next_level():
+	wave = 1
+	level += 1
+	get_tree().change_scene_to_file(LEVELS[level - 1])
+	
 func game_over():
 	get_tree().change_scene_to_file(GAME_OVER_SCENE)
 
