@@ -88,7 +88,7 @@ animations = [{
 script = ExtResource("1_ok0nw")
 waves = Array[ExtResource("2_g2luv")]([SubResource("Resource_a5s8o"), SubResource("Resource_ls4ot"), SubResource("Resource_tx362")])
 pathfinder = NodePath("Pathfinder")
-tile_map = NodePath("")
+tile_map = NodePath("Map")
 
 [node name="Map" parent="." unique_id=1739061051 instance=ExtResource("4_47a12")]
 
@@ -99,7 +99,7 @@ limit_enabled = false
 
 [node name="Pathfinder" type="Node" parent="." unique_id=2022046508 node_paths=PackedStringArray("tile_map")]
 script = ExtResource("12_781as")
-tile_map = NodePath("")
+tile_map = NodePath("../Map")
 
 [node name="Spawner" parent="." unique_id=567677002 node_paths=PackedStringArray("pathfinder") instance=ExtResource("13_pfr8s")]
 position = Vector2(80, 16)

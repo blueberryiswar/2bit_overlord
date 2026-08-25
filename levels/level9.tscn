@@ -1,22 +1,13 @@
-[gd_scene format=4 uid="uid://dx752g1ngcdnc"]
+[gd_scene format=3 uid="uid://dx752g1ngcdnc"]
 
 [ext_resource type="Script" uid="uid://b2n1yn8gu1qx7" path="res://scripts/level.gd" id="1_n4xys"]
 [ext_resource type="Script" uid="uid://c6svssa8dy2v3" path="res://scripts/wave.gd" id="2_t4fyd"]
 [ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/heroes/knight.tscn" id="3_06d07"]
-[ext_resource type="Texture2D" uid="uid://b87ykqwmhw61x" path="res://assets/tilemap.png" id="4_7slqy"]
-[ext_resource type="Script" uid="uid://bsx2yewb0rfi1" path="res://scripts/map.gd" id="5_55jtd"]
-[ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="6_m4w5e"]
-[ext_resource type="PackedScene" uid="uid://devf7u7q0udqi" path="res://objects/balista.tscn" id="7_eic1c"]
-[ext_resource type="PackedScene" uid="uid://bh55mopm64re6" path="res://objects/fire_trap.tscn" id="8_n0ucm"]
-[ext_resource type="PackedScene" uid="uid://ci6ej57maitvm" path="res://objects/wall.tscn" id="9_1nig6"]
-[ext_resource type="PackedScene" uid="uid://d0mdlhey7jkon" path="res://objects/teleport_trap.tscn" id="10_toaov"]
-[ext_resource type="PackedScene" uid="uid://bcfgnop6e4iw" path="res://objects/treasure.tscn" id="11_qo35d"]
+[ext_resource type="PackedScene" uid="uid://c828demt8yew7" path="res://objects/map.tscn" id="4_0olrf"]
 [ext_resource type="Script" uid="uid://dv5liv8b8dsyv" path="res://scripts/pathfinder.gd" id="12_ht7ie"]
 [ext_resource type="PackedScene" uid="uid://dqdt5apq6pamf" path="res://objects/spawner.tscn" id="13_fhgva"]
+[ext_resource type="PackedScene" uid="uid://ddbexhrevy16k" path="res://objects/gui.tscn" id="14_4ocak"]
 [ext_resource type="PackedScene" uid="uid://c4honmkmmfvs8" path="res://objects/exit.tscn" id="14_87mtr"]
-[ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="15_p3vpj"]
-[ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="16_m35wn"]
-[ext_resource type="PackedScene" uid="uid://dotgnepjd1qci" path="res://objects/gui/action_button.tscn" id="17_djgxs"]
 [ext_resource type="Texture2D" uid="uid://bq8l6tq7roeav" path="res://assets/boneborder.png" id="18_fnkvl"]
 [ext_resource type="Texture2D" uid="uid://bt4lyydfqbavy" path="res://assets/coin_label.png" id="19_iv5ii"]
 [ext_resource type="Script" uid="uid://bx0iops8mjhug" path="res://scripts/coin_symbol.gd" id="20_bq5as"]
@@ -39,59 +30,11 @@ script = ExtResource("2_t4fyd")
 enemies = Array[PackedScene]([ExtResource("3_06d07"), ExtResource("3_06d07"), ExtResource("3_06d07")])
 metadata/_custom_type_script = "uid://c6svssa8dy2v3"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
-texture = ExtResource("4_7slqy")
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-0:0/0/custom_data_0 = true
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:0/0/custom_data_0 = true
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:0/0/custom_data_0 = true
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-3:0/0/custom_data_0 = true
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-4:0/0/custom_data_0 = true
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-7:0/0 = 0
-8:0/0 = 0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-9:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_pdtm5"]
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "wall"
-custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_b3oru")
-
 [sub_resource type="Gradient" id="Gradient_omn1t"]
 offsets = PackedFloat32Array(0.996, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_a6hcy"]
 gradient = SubResource("Gradient_omn1t")
-
-[sub_resource type="LabelSettings" id="LabelSettings_iqjy0"]
-font = ExtResource("15_p3vpj")
-font_color = Color(1, 0.6666667, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7u7y"]
 atlas = ExtResource("19_iv5ii")
@@ -147,19 +90,7 @@ waves = Array[ExtResource("2_t4fyd")]([SubResource("Resource_a5s8o"), SubResourc
 pathfinder = NodePath("Pathfinder")
 tile_map = NodePath("Map")
 
-[node name="Map" type="TileMapLayer" parent="." unique_id=1686445765]
-tile_map_data = PackedByteArray("AAABAAQAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAEAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAADAAAAAAAHAAAAAAAEAAAAAAAIAAAAAAACAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAABAAAAAAALAAAAAAADAAAAAAAMAAAAAAAAAAAAAAANAAAAAAADAAAAAAAOAAAAAAADAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAACAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAACAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAABAAAAAAAPAAcAAAABAAAAAAAPAAgAAAACAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAADAAAAAAAPAAwAAAACAAAAAAAPAA0AAAAEAAAAAAAPAA4AAAACAAAAAAAPAA8AAAABAAAAAAAOAA8AAAACAAAAAAANAA8AAAACAAAAAAAMAA8AAAABAAAAAAALAA8AAAACAAAAAAAKAA8AAAAEAAAAAAAJAA8AAAAAAAAAAAAIAA8AAAABAAAAAAAHAA8AAAACAAAAAAAGAA8AAAAAAAAAAAAFAA8AAAABAAAAAAAEAA8AAAADAAAAAAADAA8AAAADAAAAAAACAA8AAAACAAAAAAABAA8AAAAEAAAAAAAAAA8AAAADAAAAAAAAAAEAAAAEAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAAUAAAAEAAAAAAAAAAYAAAACAAAAAAAAAAcAAAACAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAABAAAAAAAAAAoAAAACAAAAAAAAAAsAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA4AAAABAAAAAAAHAAwAAAACAAAAAAAHAAsAAAAAAAAAAAAHAAoAAAAAAAAAAAAHAAkAAAADAAAAAAAHAAgAAAAEAAAAAAAHAAcAAAAEAAAAAAAHAAYAAAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAACAAAAAAAHAAMAAAAHAAAAAAAHAAIAAAADAAAAAAAHAAEAAAACAAAAAAAGAAEAAAABAAAAAAAFAAEAAAAHAAAAAAAEAAEAAAACAAAAAAADAAEAAAADAAAAAAACAAEAAAACAAAAAAABAAEAAAABAAAAAAABAAIAAAABAAAAAAABAAMAAAACAAAAAAACAAMAAAADAAAAAAACAAIAAAABAAAAAAADAAIAAAAEAAAAAAADAAMAAAAEAAAAAAADAAQAAAABAAAAAAACAAQAAAACAAAAAAACAAUAAAAEAAAAAAABAAUAAAACAAAAAAABAAYAAAADAAAAAAABAAcAAAAEAAAAAAABAAgAAAACAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAABAAsAAAACAAAAAAABAAwAAAAEAAAAAAABAA0AAAADAAAAAAABAA4AAAAAAAAAAAACAA4AAAADAAAAAAACAA0AAAACAAAAAAACAAwAAAAEAAAAAAACAAsAAAABAAAAAAACAAoAAAACAAAAAAACAAkAAAABAAAAAAACAAgAAAAEAAAAAAACAAcAAAACAAAAAAACAAYAAAAAAAAAAAADAAYAAAABAAAAAAADAAUAAAAEAAAAAAAEAAUAAAAAAAAAAAAEAAQAAAADAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAACAAAAAAAFAAIAAAAHAAAAAAAFAAMAAAAHAAAAAAAFAAQAAAADAAAAAAAFAAUAAAAEAAAAAAAFAAYAAAAEAAAAAAAEAAYAAAAEAAAAAAAEAAcAAAABAAAAAAADAAcAAAACAAAAAAADAAgAAAAAAAAAAAADAAkAAAABAAAAAAADAAoAAAADAAAAAAADAAsAAAADAAAAAAADAAwAAAAEAAAAAAADAA0AAAAEAAAAAAADAA4AAAADAAAAAAAEAA4AAAACAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAACAAAAAAAEAAsAAAACAAAAAAAEAAoAAAABAAAAAAAEAAkAAAAEAAAAAAAEAAgAAAADAAAAAAAFAAgAAAABAAAAAAAFAAcAAAAEAAAAAAAGAAcAAAACAAAAAAAGAAYAAAABAAAAAAAGAAUAAAAEAAAAAAAGAAQAAAABAAAAAAAGAAMAAAAHAAAAAAAGAAIAAAACAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAABAAAAAAAFAAkAAAAEAAAAAAAFAAoAAAABAAAAAAAFAAsAAAACAAAAAAAFAAwAAAABAAAAAAAFAA0AAAAAAAAAAAAFAA4AAAABAAAAAAAGAA4AAAABAAAAAAAGAA0AAAAEAAAAAAAGAAwAAAAEAAAAAAAGAAsAAAABAAAAAAAGAAoAAAAAAAAAAAAHAA0AAAABAAAAAAAHAA4AAAADAAAAAAAIAA4AAAABAAAAAAAIAA0AAAAEAAAAAAAIAAwAAAAHAAAAAAAIAAsAAAAHAAAAAAAIAAoAAAAHAAAAAAAIAAkAAAACAAAAAAAIAAgAAAACAAAAAAAIAAcAAAABAAAAAAAIAAYAAAABAAAAAAAIAAUAAAADAAAAAAAIAAQAAAABAAAAAAAIAAMAAAAHAAAAAAAIAAIAAAACAAAAAAAIAAEAAAABAAAAAAAJAAEAAAAEAAAAAAAJAAIAAAADAAAAAAAJAAMAAAAHAAAAAAAJAAQAAAACAAAAAAAJAAUAAAACAAAAAAAJAAYAAAACAAAAAAAJAAcAAAACAAAAAAAJAAgAAAACAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAHAAAAAAAJAAsAAAAEAAAAAAAJAAwAAAAHAAAAAAAJAA0AAAAHAAAAAAAJAA4AAAAHAAAAAAAKAA4AAAADAAAAAAAKAA0AAAABAAAAAAAKAAwAAAAHAAAAAAAKAAsAAAACAAAAAAAKAAoAAAAHAAAAAAAKAAkAAAABAAAAAAAKAAgAAAACAAAAAAAKAAcAAAAEAAAAAAAKAAYAAAACAAAAAAAKAAUAAAABAAAAAAAKAAQAAAADAAAAAAAKAAMAAAAAAAAAAAAKAAIAAAABAAAAAAAKAAEAAAAEAAAAAAALAAEAAAABAAAAAAALAAIAAAACAAAAAAALAAMAAAADAAAAAAALAAQAAAAEAAAAAAALAAUAAAABAAAAAAALAAYAAAADAAAAAAALAAcAAAABAAAAAAALAAgAAAADAAAAAAALAAkAAAAEAAAAAAALAAoAAAAHAAAAAAALAAsAAAAHAAAAAAALAAwAAAAHAAAAAAALAA0AAAAEAAAAAAALAA4AAAADAAAAAAAMAA4AAAAEAAAAAAAMAA0AAAAHAAAAAAAMAAwAAAAHAAAAAAAMAAsAAAAEAAAAAAAMAAoAAAACAAAAAAAMAAkAAAAAAAAAAAAMAAgAAAABAAAAAAAMAAcAAAAEAAAAAAAMAAYAAAACAAAAAAAMAAUAAAAAAAAAAAAMAAQAAAAEAAAAAAAMAAMAAAABAAAAAAAMAAIAAAAEAAAAAAAMAAEAAAAEAAAAAAANAAEAAAADAAAAAAANAAIAAAADAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAAAAAANAAUAAAAEAAAAAAANAAYAAAADAAAAAAANAAcAAAABAAAAAAANAAgAAAABAAAAAAANAAkAAAABAAAAAAANAAoAAAAEAAAAAAANAAsAAAADAAAAAAANAAwAAAAAAAAAAAANAA0AAAACAAAAAAANAA4AAAACAAAAAAAOAA4AAAADAAAAAAAOAA0AAAACAAAAAAAOAAwAAAADAAAAAAAOAAsAAAAEAAAAAAAOAAoAAAAAAAAAAAAOAAkAAAACAAAAAAAOAAgAAAACAAAAAAAOAAcAAAADAAAAAAAOAAYAAAACAAAAAAAOAAUAAAABAAAAAAAOAAQAAAAEAAAAAAAOAAMAAAADAAAAAAAOAAIAAAAEAAAAAAAOAAEAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_pdtm5")
-occlusion_enabled = false
-script = ExtResource("5_55jtd")
-trap_scenes = Dictionary[int, PackedScene]({
-1: ExtResource("6_m4w5e"),
-2: ExtResource("7_eic1c"),
-3: ExtResource("8_n0ucm"),
-4: ExtResource("9_1nig6"),
-6: ExtResource("10_toaov")
-})
-treasure_scene = ExtResource("11_qo35d")
+[node name="Map" parent="." unique_id=1739061051 instance=ExtResource("4_0olrf")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1662639796]
 position = Vector2(67, 118)
@@ -186,68 +117,6 @@ offset_top = -48.0
 offset_right = 288.0
 offset_bottom = 272.0
 texture = SubResource("GradientTexture1D_a6hcy")
-
-[node name="gui" type="CanvasLayer" parent="." unique_id=642812127]
-follow_viewport_enabled = true
-
-[node name="Label" type="Label" parent="gui" unique_id=652681187]
-offset_left = -96.0
-offset_right = -32.0
-offset_bottom = 20.0
-tooltip_text = "Gold you currently own."
-mouse_filter = 1
-text = "100"
-label_settings = SubResource("LabelSettings_iqjy0")
-horizontal_alignment = 2
-script = ExtResource("16_m35wn")
-
-[node name="ActionMenu" type="GridContainer" parent="gui" unique_id=1898264903]
-offset_left = -112.0
-offset_top = 32.0
-offset_right = -32.0
-offset_bottom = 128.0
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 5
-columns = 4
-
-[node name="Dig" parent="gui/ActionMenu" unique_id=546656483 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-button_pressed = true
-buttonColumn = 4
-
-[node name="SpikeTrap" parent="gui/ActionMenu" unique_id=2053856947 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-build_type = 1
-build_cost = 3
-text = "Spike Trap"
-buttonColumn = 0
-
-[node name="Balista" parent="gui/ActionMenu" unique_id=1001889033 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-build_type = 2
-build_cost = 5
-text = "Balista"
-
-[node name="Wall" parent="gui/ActionMenu" unique_id=1278817602 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-build_type = 4
-build_cost = 5
-text = "Wall"
-buttonColumn = 6
-
-[node name="Fire" parent="gui/ActionMenu" unique_id=25705922 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-build_type = 3
-build_cost = 5
-text = "Firetrap"
-buttonColumn = 10
-
-[node name="Mimic" parent="gui/ActionMenu" unique_id=1605487180 instance=ExtResource("17_djgxs")]
-layout_mode = 2
-build_type = 6
-build_cost = 10
-text = "Portal"
-buttonColumn = 8
 
 [node name="border" type="Node2D" parent="." unique_id=294423306]
 
@@ -284,3 +153,5 @@ stream = ExtResource("21_h8ypj")
 script = ExtResource("22_257uh")
 build_phase = ExtResource("23_2di71")
 fight_phase = ExtResource("21_h8ypj")
+
+[node name="gui" parent="." unique_id=1718052692 instance=ExtResource("14_4ocak")]
