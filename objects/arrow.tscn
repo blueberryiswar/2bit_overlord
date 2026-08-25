@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://conv5140sl816"]
+
+[ext_resource type="Script" uid="uid://cswadb08rmtoe" path="res://scripts/arrow.gd" id="1_ledw7"]
+[ext_resource type="Texture2D" uid="uid://cj23aqi3udmi0" path="res://assets/arrow.png" id="2_3at4w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqjy0"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
+size = Vector2(8, 10)
+
+[node name="Arrow" type="RigidBody2D" unique_id=362981390]
+script = ExtResource("1_ledw7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=516469234]
+position = Vector2(8, 8)
+texture = ExtResource("2_3at4w")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=1690259330]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1353671150]
+position = Vector2(8, 3)
+shape = SubResource("CircleShape2D_iqjy0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633164007]
+position = Vector2(8, 5)
+shape = SubResource("RectangleShape2D_iqjy0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

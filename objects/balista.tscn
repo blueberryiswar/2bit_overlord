@@ -1,35 +1,40 @@
-[gd_scene format=3 uid="uid://dnjnsbkkk11ka"]
+[gd_scene format=3 uid="uid://devf7u7q0udqi"]
 
-[ext_resource type="Script" uid="uid://di343i0pnibr8" path="res://scripts/spike_trap.gd" id="1_mu043"]
-[ext_resource type="Texture2D" uid="uid://de2mt0cmhgkb3" path="res://assets/wandstacheln.png" id="2_4yvfh"]
+[ext_resource type="Script" uid="uid://djhuoxm3s50py" path="res://scripts/balista.gd" id="1_qjb2k"]
+[ext_resource type="Texture2D" uid="uid://de2mt0cmhgkb3" path="res://assets/wandstacheln.png" id="2_qjb2k"]
+[ext_resource type="Texture2D" uid="uid://dm5g82xooqjnx" path="res://assets/Balista.png" id="3_qjb2k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntgje"]
-atlas = ExtResource("2_4yvfh")
+atlas = ExtResource("2_qjb2k")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nyu0r"]
-atlas = ExtResource("2_4yvfh")
+atlas = ExtResource("2_qjb2k")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ese8y"]
-atlas = ExtResource("2_4yvfh")
+atlas = ExtResource("2_qjb2k")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eo14s"]
-atlas = ExtResource("2_4yvfh")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mu043"]
-atlas = ExtResource("2_4yvfh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_txxqv"]
+atlas = ExtResource("3_qjb2k")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a435v"]
-atlas = ExtResource("2_4yvfh")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_axqku"]
-atlas = ExtResource("2_4yvfh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfsva"]
+atlas = ExtResource("3_qjb2k")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyre7"]
+atlas = ExtResource("3_qjb2k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbqu8"]
+atlas = ExtResource("3_qjb2k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc54h"]
+atlas = ExtResource("3_qjb2k")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iqjy0"]
 animations = [{
@@ -49,10 +54,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eo14s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mu043")
+"texture": SubResource("AtlasTexture_txxqv")
 }],
 "loop": 1,
 "name": &"default",
@@ -60,10 +62,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a435v")
+"texture": SubResource("AtlasTexture_nfsva")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_axqku")
+"texture": SubResource("AtlasTexture_gyre7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbqu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc54h")
 }],
 "loop": 0,
 "name": &"trap_active",
@@ -72,13 +80,16 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6hcy"]
 
-[node name="SpikeTrap" type="Node2D" unique_id=1952756675 groups=["trap"]]
-script = ExtResource("1_mu043")
+[node name="Balista" type="Node2D" unique_id=1952756675 groups=["trap"]]
+script = ExtResource("1_qjb2k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1145837448]
 position = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_iqjy0")
+animation = &"trap_active"
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="Trigger" type="Area2D" parent="." unique_id=566612508]
 

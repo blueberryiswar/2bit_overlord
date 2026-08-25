@@ -25,6 +25,12 @@ func adjust_trap_rotation():
 func trap_rotation(new_rotation : float):
 	$AnimatedSprite2D.rotation = new_rotation
 	
+func trap_action():
+	if hero:
+		hero.take_damage(damage)
+	trap_removed.emit(global_position)
+	queue_free()
+	
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hero"):
 		used = true
@@ -34,10 +40,7 @@ func _on_trigger_body_entered(body: Node2D) -> void:
 		$AnimatedSprite2D.play("trap_active")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	if hero:
-		hero.take_damage(damage)
-	trap_removed.emit(global_position)
-	queue_free()
+	trap_action()
 
 func set_tile_map(new_tile_map : TileMapLayer) -> void:
 	tile_map = new_tile_map
