@@ -28,6 +28,8 @@ func try_to_start_wave() -> void:
 	wave_start()
 
 func wave_start():
+	if waves.size() < GameManager.wave:
+		return
 	var currentWave = waves[GameManager.wave - 1]
 	remaining_enemies = currentWave.enemies.size()
 	var entrances = get_tree().get_nodes_in_group("entrance")

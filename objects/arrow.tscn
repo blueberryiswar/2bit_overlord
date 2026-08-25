@@ -13,17 +13,17 @@ size = Vector2(8, 10)
 script = ExtResource("1_ledw7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=516469234]
-position = Vector2(8, 8)
+position = Vector2(0, 8)
 texture = ExtResource("2_3at4w")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1690259330]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1353671150]
-position = Vector2(8, 3)
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_iqjy0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633164007]
-position = Vector2(8, 5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_iqjy0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
