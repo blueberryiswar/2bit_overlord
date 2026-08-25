@@ -12,10 +12,10 @@ func adjust_trap_rotation():
 func trigger_entered(body: Node2D):
 	if body.is_in_group("hero"):
 		used = true
-		$AnimatedSprite2D.play("bloody")
+		$Pivot/AnimatedSprite2D.play("bloody")
 		hero = body
 	else:
-		$AnimatedSprite2D.play("trap_active")
+		$Pivot/AnimatedSprite2D.play("trap_active")
 
 func trap_action():
 	if hero:

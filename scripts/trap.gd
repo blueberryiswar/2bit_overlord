@@ -17,7 +17,7 @@ func adjust_trap_rotation():
 	print("implement adjust rotation")
 
 func trap_rotation(new_rotation : float):
-	$AnimatedSprite2D.rotation = new_rotation
+	$Pivot.rotation = new_rotation
 	
 func trap_action():
 	if hero:
@@ -29,13 +29,8 @@ func remove_trap():
 	trap_removed.emit(global_position)
 	queue_free()
 	
-func trigger_entered(body: Node2D):
-	if body.is_in_group("hero"):
-		used = true
-		$AnimatedSprite2D.play("bloody")
-		hero = body
-	else:
-		$AnimatedSprite2D.play("trap_active")
+func trigger_entered(_body: Node2D):
+	$Pivot/AnimatedSprite2D.play("trap_active")
 	
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if used:

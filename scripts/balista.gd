@@ -3,6 +3,12 @@ extends Trap
 @export var arrow_scene : PackedScene
 @export var cooldown : float = 5.0
 var current_cooldown : float = 0
+const DIRECTIONS := {
+	Vector2i(0, -1): 0.0,           # up
+	Vector2i(1, 0): PI / 2,         # right
+	Vector2i(0, 1): PI,             # down
+	Vector2i(-1, 0): -PI / 2,       # left
+}
 
 func _process(delta: float) -> void:
 	if current_cooldown > 0:
@@ -22,13 +28,6 @@ func trigger_entered(body: Node2D):
 	
 func trap_action():
 	shoot()
-
-const DIRECTIONS := {
-	Vector2i(0, -1): 0.0,           # up
-	Vector2i(1, 0): PI / 2,         # right
-	Vector2i(0, 1): PI,             # down
-	Vector2i(-1, 0): -PI / 2,       # left
-}
 
 func adjust_trap_rotation() -> void:
 	var map_pos = tile_map.local_to_map(tile_map.to_local(global_position))
