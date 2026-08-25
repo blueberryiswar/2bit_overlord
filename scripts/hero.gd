@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var health : int = 1
 @export var coins : int = 1
 @export var steals_amount : int = 2
+@export var shader_material : ShaderMaterial = preload("res://objects/shaders/hint_color.tres")
 var wait = false
 var goal = Vector2i(8,8)
 var lastPosition : Vector2i
@@ -14,6 +15,20 @@ var thief = false
 
 const SPEED : float = 15.0
 var path_queue = []
+
+func _ready() -> void:
+	if shader_material:
+		$Sprite2D.material = shader_material.duplicate()
+		
+func flash(color : Color) -> void:
+	var mat = $Sprite2D.material
+	mat.set_shader_parameter("solid_color", color)
+	var tween = create_tween()
+	tween.tween_method(
+		func(alpha): mat.set_shader_parameter("solid_color", Color(color.r, color.g, color.b, alpha)),
+		1.0, 0.0, 0.15
+	)
+	
 
 func start_path_to(goal_map_pos: Vector2i):
 	var local_start = tile_map.to_local(global_position)
@@ -74,6 +89,8 @@ func take_damage(damage : int):
 	health -= damage
 	if health <= 0:
 		die()
+	else:
+		flash(Color.RED)
 
 func escaped():
 	GameManager.on_hero_escaped()

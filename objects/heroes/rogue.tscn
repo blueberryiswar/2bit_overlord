@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6taim852h4b1" path="res://scripts/hero.gd" id="1_s1rxt"]
 [ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="2_lyxbq"]
+[ext_resource type="Material" uid="uid://bqunx317ldpu8" path="res://objects/shaders/hint_color.tres" id="3_p0ypw"]
 [ext_resource type="Texture2D" uid="uid://42gw0utfxns2" path="res://assets/rogue.png" id="3_s1rxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
@@ -110,6 +111,7 @@ steals_amount = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=893579234]
 z_index = 1
+material = ExtResource("3_p0ypw")
 position = Vector2(8, 8)
 texture = ExtResource("3_s1rxt")
 

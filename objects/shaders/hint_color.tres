@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bqunx317ldpu8"]
+
+[ext_resource type="Shader" uid="uid://chn1wufkedwjr" path="res://scripts/hint_color.gdshader" id="1_35gm8"]
+
+[resource]
+shader = ExtResource("1_35gm8")
+shader_parameter/solid_color = Color(0, 0, 0, 0)
