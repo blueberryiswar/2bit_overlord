@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://c042m0van1chc"
 TooltipManager="*uid://ybohoci588d7"
+LevelEvents="*uid://dtuhtx2gsm20i"
 
 [display]
 

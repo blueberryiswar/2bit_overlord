@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://coh7kq8s4xquc" path="res://objects/knight.tscn" id="6_pdpul"]
 [ext_resource type="PackedScene" uid="uid://devf7u7q0udqi" path="res://objects/balista.tscn" id="7_ls4ot"]
 [ext_resource type="PackedScene" uid="uid://c4honmkmmfvs8" path="res://objects/exit.tscn" id="8_045es"]
+[ext_resource type="PackedScene" uid="uid://ci6ej57maitvm" path="res://objects/wall.tscn" id="8_tx362"]
+[ext_resource type="PackedScene" uid="uid://bh55mopm64re6" path="res://objects/fire_trap.tscn" id="9_l7nqg"]
 [ext_resource type="PackedScene" uid="uid://dnjnsbkkk11ka" path="res://objects/spike_trap.tscn" id="9_omn1t"]
 [ext_resource type="FontFile" uid="uid://cg8cmwomjb6xk" path="res://assets/Early GameBoy.ttf" id="10_yydhl"]
 [ext_resource type="Script" uid="uid://x3tkm3g0lvrl" path="res://scripts/gold_label.gd" id="11_bekh1"]
@@ -148,7 +150,9 @@ occlusion_enabled = false
 script = ExtResource("3_b3oru")
 trap_scenes = Dictionary[int, PackedScene]({
 1: ExtResource("9_omn1t"),
-2: ExtResource("7_ls4ot")
+2: ExtResource("7_ls4ot"),
+3: ExtResource("9_l7nqg"),
+4: ExtResource("8_tx362")
 })
 treasure_scene = ExtResource("2_8hd6v")
 

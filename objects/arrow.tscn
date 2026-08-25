@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cswadb08rmtoe" path="res://scripts/arrow.gd" id="1_ledw7"]
 [ext_resource type="Texture2D" uid="uid://cj23aqi3udmi0" path="res://assets/arrow.png" id="2_3at4w"]
+[ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="3_3at4w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqjy0"]
 radius = 5.0
@@ -25,6 +26,8 @@ shape = SubResource("CircleShape2D_iqjy0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633164007]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_iqjy0")
+
+[node name="StatusEffectReceiver" parent="." unique_id=557122280 instance=ExtResource("3_3at4w")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

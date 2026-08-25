@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6taim852h4b1" path="res://scripts/hero.gd" id="1_ag87y"]
 [ext_resource type="Texture2D" uid="uid://bmw0atot5k7p3" path="res://assets/paladin.png" id="1_xnh7u"]
+[ext_resource type="PackedScene" uid="uid://bw1l1pqc50r7x" path="res://objects/status_effect_receiver.tscn" id="2_1wu7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqjy0"]
 size = Vector2(16, 16)
@@ -102,6 +103,10 @@ z_index = 1
 collision_layer = 131
 collision_mask = 131
 script = ExtResource("1_ag87y")
+health = 5
+coins = 3
+
+[node name="StatusEffectReceiver" parent="." unique_id=557122280 instance=ExtResource("2_1wu7s")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=893579234]
 z_index = 1

@@ -9,6 +9,7 @@ signal build_type_changed(new_buildtype : BuildType)
 signal build_phase_changed(state : bool)
 signal hero_died
 signal hero_escaped
+
 		
 
 var current_build_type : BuildType = BuildType.DIG

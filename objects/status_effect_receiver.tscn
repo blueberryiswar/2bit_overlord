@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bw1l1pqc50r7x"]
+
+[ext_resource type="Script" uid="uid://bvvt68pglmfto" path="res://scripts/status_effect_receiver.gd" id="1_yi5fw"]
+
+[node name="StatusEffectReceiver" type="Node" unique_id=557122280]
+script = ExtResource("1_yi5fw")

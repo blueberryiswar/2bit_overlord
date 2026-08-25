@@ -4,6 +4,7 @@ extends Node
 
 var astar_grid
 var storages_in_world = []
+var manually_solid_points : Array[Vector2i] = []
 
 @export var tile_map : TileMapLayer
 
@@ -15,6 +16,8 @@ func _ready():
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	astar_grid.update()
 	update()
+	LevelEvents.make_solid.connect(set_solid)
+	LevelEvents.erase_solid.connect(remove_solid)
 
 func get_my_path(start, to):
 	var id_path = astar_grid.get_id_path(
@@ -36,6 +39,19 @@ func move_solid(old_position, new_position):
 	if(old_position):
 		astar_grid.set_point_solid(tile_map.local_to_map(old_position), false)
 	astar_grid.set_point_solid(tile_map.local_to_map(new_position))
+	
+func set_solid(global_pos):
+	var local_pos = tile_map.to_local(global_pos)
+	var grid_pos = tile_map.local_to_map(local_pos)
+	if grid_pos not in manually_solid_points:
+		manually_solid_points.append(grid_pos)
+	astar_grid.set_point_solid(grid_pos)
+	
+func remove_solid(global_pos):
+	var local_pos = tile_map.to_local(global_pos)
+	var grid_pos = tile_map.local_to_map(local_pos)
+	manually_solid_points.erase(grid_pos)
+	astar_grid.set_point_solid(grid_pos, false)
 	
 func has_valid_path(entrance: Vector2i, chest: Vector2i, exit: Vector2i) -> bool:
 	update()
@@ -65,3 +81,6 @@ func update():
 				astar_grid.set_point_solid(tile_position)
 			else:
 				astar_grid.set_point_solid(tile_position, false)
+	
+	for grid_pos in manually_solid_points:
+		astar_grid.set_point_solid(grid_pos)
